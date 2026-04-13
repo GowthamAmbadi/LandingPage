@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Upari Consulting</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,9 +13,16 @@
 
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { min-height: 100%; background: #06090f; }
+  html, body {
+    min-height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #06090f;
+  }
   .site {
     background: #06090f; color: #e8eaf0; min-height: 100vh; min-height: 100dvh;
+    max-width: 100%;
+    overflow-x: hidden;
     font-family: 'Inter', -apple-system, sans-serif;
     display: flex; flex-direction: column;
   }
@@ -105,7 +112,9 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
     flex: 1 1 auto;
     min-height: 560px;
+    min-width: 0;
   }
+  .hero-left { min-width: 0; }
   .hero::before {
     content: '';
     position: absolute; inset: 0;
@@ -121,8 +130,10 @@
     pointer-events: none;
   }
   .hero-title {
-    font-size: 58px; font-weight: 700; line-height: 1.08; letter-spacing: -1.8px;
+    font-size: clamp(1.85rem, 4vw + 1.1rem, 3.625rem);
+    font-weight: 700; line-height: 1.08; letter-spacing: -0.04em;
     color: #ffffff; margin-bottom: 36px;
+    word-wrap: break-word;
   }
   .hero-title .accent { color: #818cf8; }
   .hero-actions { display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; }
@@ -238,15 +249,38 @@
   .success-msg { display: none; text-align: center; padding: 20px 0; color: #6ee7b7; font-size: 15px; }
   .success-msg.show { display: block; }
 
-  @media (max-width: 768px) {
-    .site-header { padding: 14px 20px; }
-    .site-header-title { font-size: 1.15rem; }
-    .site-header-num { font-size: 11px; }
-    .hero { grid-template-columns: 1fr; padding: 60px 24px 50px; gap: 40px; }
-    .hero-title { font-size: 38px; }
+  @media (max-width: 1024px) {
+    .site-header {
+      padding: 14px max(16px, env(safe-area-inset-right, 0px)) 14px max(16px, env(safe-area-inset-left, 0px));
+      gap: 10px;
+    }
+    .site-header-title { font-size: clamp(1rem, 2.5vw + 0.65rem, 1.35rem); white-space: normal; text-align: center; }
+    .site-header-num { font-size: clamp(10px, 2vw, 12px); }
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 48px max(20px, env(safe-area-inset-right, 0px)) 44px max(20px, env(safe-area-inset-left, 0px));
+      gap: 32px;
+      min-height: 0;
+    }
+    .hero-title { margin-bottom: 28px; letter-spacing: -0.03em; }
     .hero-visual { display: none; }
-    .footer { padding: 22px 24px; }
+    .footer {
+      padding: 20px max(20px, env(safe-area-inset-right, 0px)) 20px max(20px, env(safe-area-inset-left, 0px));
+    }
     .form-grid { grid-template-columns: 1fr; }
+    .modal {
+      padding: max(28px, env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-right, 0px)) max(28px, env(safe-area-inset-bottom, 0px)) max(24px, env(safe-area-inset-left, 0px));
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-header { padding-top: max(12px, env(safe-area-inset-top, 0px)); }
+    .site-header-burger { width: 40px; height: 40px; font-size: 20px; }
+    .hero { padding-top: 36px; padding-bottom: 36px; gap: 28px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+    .hero-explore-wrap { width: 100%; }
+    .footer-copy { font-size: 14px; }
   }
 </style>
 
