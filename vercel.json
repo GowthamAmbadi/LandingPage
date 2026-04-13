@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/upari_consulting_landing_v2.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
