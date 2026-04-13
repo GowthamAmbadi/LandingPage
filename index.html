@@ -149,18 +149,6 @@
     transition: border-color 0.2s, color 0.2s;
   }
   .btn-secondary:hover { border-color: rgba(255,255,255,0.35); color: #fff; }
-  .hero-explore-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .hero-coming-soon {
-    font-size: 14px;
-    color: rgba(199, 210, 254, 0.55);
-    letter-spacing: 0.04em;
-  }
-
   /* HERO VISUAL CARD */
   .hero-visual { position: relative; display: flex; justify-content: center; }
   .hero-card {
@@ -207,6 +195,19 @@
     align-items: center; justify-content: center; padding: 20px;
   }
   .modal-overlay.open { display: flex; }
+  .explore-overlay {
+    display: none; position: fixed; inset: 0; z-index: 1001;
+    background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .explore-overlay.open { display: flex; }
+  .explore-modal {
+    background: #0e1420; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 48px 40px 40px; width: 100%; max-width: 400px;
+    text-align: center; position: relative;
+  }
+  .explore-title { font-size: 24px; font-weight: 600; color: #fff; margin-bottom: 12px; }
+  .explore-sub { font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.5; }
   .modal {
     background: #0e1420; border: 1px solid rgba(255,255,255,0.1);
     border-radius: 16px; padding: 40px; width: 100%; max-width: 520px;
@@ -279,7 +280,6 @@
     .hero { padding-top: 36px; padding-bottom: 36px; gap: 28px; }
     .hero-actions { flex-direction: column; align-items: stretch; }
     .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-    .hero-explore-wrap { width: 100%; }
     .footer-copy { font-size: 14px; }
   }
 
@@ -304,10 +304,7 @@
       <h1 class="hero-title">Oracle Cloud &<br><span class="accent">ERP Consulting</span></h1>
       <div class="hero-actions">
         <button class="btn-primary" onclick="openModal()">Contact Us &rarr;</button>
-        <div class="hero-explore-wrap">
-          <button type="button" class="btn-secondary">Explore Services</button>
-          <span class="hero-coming-soon">Coming soon</span>
-        </div>
+        <button type="button" class="btn-secondary" onclick="openExploreSoon()">Explore Services</button>
       </div>
     </div>
     <div class="hero-visual">
@@ -361,8 +358,8 @@
           <input type="text" placeholder="CTO, VP Finance..." id="f-desig" />
         </div>
         <div class="field">
-          <label>Email id</label>
-          <input type="email" placeholder="jane@company.com" id="f-email" />
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com" id="f-email" />
         </div>
         <div class="field">
           <label>Company Name</label>
@@ -372,8 +369,8 @@
           <label>Phone Number</label>
           <div class="phone-row">
             <select class="country-select" id="f-cc">
+              <option value="+1" selected>🇺🇸 +1</option>
               <option value="+91">🇮🇳 +91</option>
-              <option value="+1">🇺🇸 +1</option>
               <option value="+44">🇬🇧 +44</option>
               <option value="+61">🇦🇺 +61</option>
               <option value="+971">🇦🇪 +971</option>
@@ -381,7 +378,7 @@
               <option value="+49">🇩🇪 +49</option>
               <option value="+33">🇫🇷 +33</option>
             </select>
-            <input type="tel" class="phone-input" placeholder="9876543210" id="f-phone" />
+            <input type="tel" class="phone-input" placeholder="555 123 4567" id="f-phone" />
           </div>
         </div>
         <div class="field form-full">
@@ -395,8 +392,26 @@
   </div>
 </div>
 
+<div class="explore-overlay" id="exploreOverlay" onclick="handleExploreOverlayClick(event)">
+  <div class="explore-modal" role="dialog" aria-labelledby="exploreTitle" aria-modal="true">
+    <button type="button" class="modal-close" onclick="closeExploreSoon()" aria-label="Close">&times;</button>
+    <p class="explore-title" id="exploreTitle">Coming soon</p>
+    <p class="explore-sub">Services browsing is not available yet. Please check back soon or use Contact Us.</p>
+  </div>
+</div>
+
 <script>
   const WEB3FORMS_ACCESS_KEY = '84c6cb0d-45c5-4162-b09b-b07edf016558';
+
+  function openExploreSoon() {
+    document.getElementById('exploreOverlay').classList.add('open');
+  }
+  function closeExploreSoon() {
+    document.getElementById('exploreOverlay').classList.remove('open');
+  }
+  function handleExploreOverlayClick(e) {
+    if (e.target === document.getElementById('exploreOverlay')) closeExploreSoon();
+  }
 
   function openModal() {
     document.getElementById('modalOverlay').classList.add('open');
