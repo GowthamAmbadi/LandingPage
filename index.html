@@ -151,13 +151,24 @@
     word-wrap: break-word;
   }
   .hero-title .accent { color: var(--accent); }
+  .hero-focus {
+    font-size: clamp(0.95rem, 0.5vw + 0.85rem, 1.1rem);
+    line-height: 1.45;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--accent-deep);
+    max-width: 36rem;
+    margin-bottom: 16px;
+    word-wrap: break-word;
+  }
   .hero-lede {
-    font-size: clamp(1rem, 0.6vw + 0.92rem, 1.15rem);
-    line-height: 1.6;
-    color: var(--ink-soft);
+    font-size: clamp(1.05rem, 0.65vw + 0.95rem, 1.25rem);
+    line-height: 1.5;
+    color: var(--ink);
     max-width: 34rem;
     margin-bottom: 32px;
-    font-weight: 400;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
   .hero-actions { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 14px; align-items: stretch; }
   .btn-primary {
@@ -303,7 +314,8 @@
       gap: 32px;
       min-height: 0;
     }
-    .hero-title { margin-bottom: 14px; letter-spacing: -0.03em; }
+    .hero-title { margin-bottom: 12px; letter-spacing: -0.03em; }
+    .hero-focus { margin-bottom: 12px; letter-spacing: 0.04em; }
     .hero-lede { margin-bottom: 26px; }
     .hero-visual { display: none; }
     .footer {
@@ -349,8 +361,9 @@
   <section class="hero">
     <div class="hero-grid-overlay"></div>
     <div class="hero-left">
-      <h1 class="hero-title">Oracle Cloud &<br><span class="accent">ERP Consulting</span></h1>
-      <p class="hero-lede">Senior-led implementations, migrations, and advisory for Oracle Fusion and ERP—from discovery through go-live.</p>
+      <h1 class="hero-title">Building Intelligent Enterprises</h1>
+      <p class="hero-focus">AI | Oracle Cloud | ERP | ServiceNow</p>
+      <p class="hero-lede">Consulting. Implementation. Execution.</p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="openModal()">Contact Us &rarr;</button>
         <button type="button" class="btn-secondary" id="btnExploreServices" onclick="onExploreServicesClick()">Explore Services</button>
