@@ -11,24 +11,24 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy-900: #042C53;
-      --navy-700: #185FA5;
-      --navy-500: #378ADD;
-      --navy-100: #E6F1FB;
-      --teal-800: #085041;
-      --teal-600: #0F6E56;
-      --teal-400: #1D9E75;
-      --teal-300: #5DCAA5;
-      --teal-100: #E1F5EE;
-      --teal-50:  #9FE1CB;
-      --amber-600: #854F0B;
-      --amber-100: #FAEEDA;
-      --gray-900: #2C2C2A;
-      --gray-700: #5F5E5A;
-      --gray-400: #888780;
-      --gray-200: #B4B2A9;
-      --gray-100: #D3D1C7;
-      --gray-50:  #F1EFE8;
+      --navy-900: #09090b;
+      --navy-700: #18181b;
+      --navy-500: #27272a;
+      --navy-100: #f4f4f5;
+      --teal-800: #18181b;
+      --teal-600: #27272a;
+      --teal-400: #52525b;
+      --teal-300: #ffffff;
+      --teal-100: #f4f4f5;
+      --teal-50:  #fafafa;
+      --amber-600: #3f3f46;
+      --amber-100: #f4f4f5;
+      --gray-900: #09090b;
+      --gray-700: #3f3f46;
+      --gray-400: #71717a;
+      --gray-200: #d4d4d8;
+      --gray-100: #e4e4e7;
+      --gray-50:  #fafafa;
       --white: #ffffff;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'DM Sans', system-ui, sans-serif;
@@ -145,7 +145,7 @@
       top: -80px; right: -80px;
       width: 420px; height: 420px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(93,202,165,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero-inner {
@@ -392,7 +392,7 @@
     }
     .service-card:hover {
       border-color: var(--navy-700);
-      box-shadow: 0 4px 20px rgba(4,44,83,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       transform: translateY(-2px);
     }
     .service-icon {
@@ -495,7 +495,7 @@
       border-radius: 2px;
       margin-bottom: 16px;
     }
-    .dark .offer-tag { background: rgba(93,202,165,0.18); color: var(--teal-300); }
+    .dark .offer-tag { background: rgba(255,255,255,0.14); color: var(--teal-300); }
     .light .offer-tag { background: var(--teal-100); color: var(--teal-600); }
     .offer-card h3 {
       font-family: var(--font-serif);
@@ -761,7 +761,7 @@
       width: 30px;
       height: 30px;
       border-radius: var(--radius-sm);
-      background: rgba(93,202,165,0.15);
+      background: rgba(255,255,255,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1291,7 +1291,7 @@
   window.addEventListener('scroll', function() {
     var nav = document.getElementById('nav');
     if (window.scrollY > 10) {
-      nav.style.boxShadow = '0 2px 16px rgba(4,44,83,0.07)';
+      nav.style.boxShadow = '0 2px 16px rgba(0,0,0,0.07)';
     } else {
       nav.style.boxShadow = 'none';
     }
