@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources – UPARI Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Merriweather+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* ── RESOURCES PAGE SPECIFIC STYLING ── */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin: 28px 0;
+    }
+    
+    .resource-card {
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      padding: 24px;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .resource-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-color: var(--gold);
+    }
+    
+    .resource-badge {
+      display: inline-block;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      background-color: #fcefdc;
+      color: var(--gold);
+      border-left: 3px solid var(--gold);
+      margin-bottom: 12px;
+    }
+    
+    .resource-card h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 10px 0;
+    }
+    
+    .resource-card p {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     TOP UTILITY BAR
+═══════════════════════════════════════════════════════════ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>Oracle ERP Cloud Consulting &amp; Advisory Services</span>
+    <div>
+      <span><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></span>
+      <span><a href="#">Client Portal</a></span>
+      <span><a href="contact.html">Request a Consultation</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="logo-block">
+      <div class="logo-mark"><span>U</span></div>
+      <div class="logo-text">
+        <h1>UPARI Consulting</h1>
+        <p>Oracle ERP Cloud Advisory &amp; Implementation</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════════ -->
+<nav>
+  <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+    <div class="nav-inner">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="ucservices/invoice-scan.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="resources.html" class="active">Resources</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════
+       BREADCRUMB
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      Resources
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE BODY — Sidebar + Main content
+  ═══════════════════════════════════════════════════════════ -->
+  <div class="page-body">
+
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="sidebar-box">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="resources.html" class="active">Resources</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>Get in Touch</h3>
+        <div class="sidebar-contact">
+          <strong>Corporate Office</strong>
+          <p>
+            UPARI Consulting LLC<br>
+            [Address Line 1]<br>
+            [City, State, ZIP]<br>
+            +1 (000) 000-0000
+          </p>
+          <p style="margin-top:10px;"><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <h1>Insights &amp; Resources</h1>
+
+      <p class="intro-para">
+        At UPARI Consulting, we believe in sharing practitioner-led insights to help organisations plan, execute, and optimise their Oracle ERP Cloud programs. Explore our upcoming publications and strategy blueprints.
+      </p>
+
+      <!-- ── SECTION: WHITEPAPERS ── -->
+      <h2>Whitepapers (Work in Progress)</h2>
+      <p>
+        Our consulting principals are currently authoring comprehensive guides based on actual project deliveries. These documents are currently in draft stages and will be available for download shortly.
+      </p>
+
+      <div class="resource-grid">
+        
+        <!-- Card 1 -->
+        <div class="resource-card">
+          <span class="resource-badge">Work in Progress</span>
+          <h3>Navigating EBS to Oracle ERP Cloud Migrations: A Practitioner's Playbook</h3>
+          <p>
+            A strategic blueprint outlining data reconciliation methodologies, dual-maintenance protocols, and risk mitigation strategies when migrating legacy Oracle E-Business Suite instances to Oracle SaaS.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="resource-card">
+          <span class="resource-badge">Work in Progress</span>
+          <h3>Strategic Chart of Accounts Design for Global Enterprises</h3>
+          <p>
+            An in-depth look at designing a scalable, multi-segment Chart of Accounts in Oracle Cloud Financials to support multi-currency reporting, tax compliance, and modern management reporting requirements.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="resource-card">
+          <span class="resource-badge">Work in Progress</span>
+          <h3>Leveraging GenAI &amp; Autonomous Agents in Oracle Fusion ERP</h3>
+          <p>
+            An analytical review of current AI capabilities inside the Oracle ERP suite, detailing practical deployment scenarios for automated work queues, intelligent invoice scanning, and autonomous validation agents.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ── CALL TO ACTION ── -->
+      <div class="cta-block">
+        <div>
+          <strong>Need tailored advice for your Oracle ERP program?</strong>
+          <p>Contact a senior practitioner at UPARI to schedule a review session with no obligation.</p>
+        </div>
+        <a href="contact.html" class="btn">Request a Consultation</a>
+      </div>
+
+  </main>
+
+</div><!-- end .page-body -->
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>UPARI Consulting</h4>
+      <p>Oracle ERP Cloud Advisory &amp; Implementation Services. Trusted by enterprise organisations
+         across industries since <span id="footer-year"></span>.</p>
+      <p style="margin-top:10px;">
+        [Address Line 1]<br>
+        [City, State, ZIP]<br>
+        +1 (000) 000-0000
+      </p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#cat-advisory">ERP Advisory</a></li>
+        <li><a href="services.html#cat-implementation">ERP Implementation</a></li>
+        <li><a href="ucservices/coa-design.html">CoA Design</a></li>
+        <li><a href="ucservices/integration.html">Integration Support</a></li>
+        <li><a href="ucservices/day2-support.html">Day 2 Maintenance</a></li>
+        <li><a href="ucservices/job-aids.html">Job Aids &amp; SOPs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="resources.html" class="active">Resources</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#">Client Portal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="footer-year-2"></span> UPARI Consulting. All rights reserved.</span>
+    <span>
+      <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="terms.html">Terms of Use</a> &nbsp;|&nbsp;
+      <a href="accessibility.html">Accessibility</a>
+    </span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  /* Auto-fill both footer year spans */
+  const yr = new Date().getFullYear();
+  const y1 = document.getElementById('footer-year');
+  const y2 = document.getElementById('footer-year-2');
+  if (y1) y1.textContent = yr;
+  if (y2) y2.textContent = yr;
+</script>
+
+</body>
+</html>
