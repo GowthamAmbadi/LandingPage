@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – UPARI Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Merriweather+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* ── CONTACT PAGE ONLY ─────────────────────────────────── */
+    .full-body {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+    
+    .full-body h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 12px;
+      margin-bottom: 28px;
+      line-height: 1.3;
+    }
+
+    .contact-container {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    /* Left Info Column */
+    .contact-info-panel {
+      flex: 1 1 340px;
+      background-color: var(--sidebar-bg);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+    }
+
+    .contact-info-header h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .contact-info-header p {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .contact-method {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-method:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-method strong {
+      display: block;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .contact-method p {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13.5px;
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .contact-method a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-method a:hover {
+      text-decoration: underline;
+      color: var(--link-hover);
+    }
+
+    /* Right Form Column */
+    .contact-form-panel {
+      flex: 2 1 540px;
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      padding: 32px 36px 36px;
+    }
+
+    .contact-form-panel h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .contact-form-panel p.form-subtitle {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      border: 1px solid var(--border);
+      background-color: #ffffff;
+      border-radius: 0; /* Premium flat design */
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input[type="text"]:focus,
+    .form-group input[type="email"]:focus,
+    .form-group input[type="tel"]:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184, 136, 42, 0.15);
+      outline: none;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--navy);
+      color: #ffffff;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 13px 28px;
+      border: 1px solid var(--navy-light);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--gold);
+      color: var(--navy-dark);
+      border-color: var(--gold-light);
+    }
+
+    .btn-submit:disabled {
+      background-color: var(--border);
+      border-color: var(--border);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    /* Message Alert Boxes */
+    .form-message {
+      margin-top: 20px;
+      padding: 12px 16px;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13.5px;
+      line-height: 1.6;
+      border-left: 4px solid;
+      display: none;
+    }
+
+    .form-message.success {
+      background-color: #edfaed;
+      border-color: #3a7a3a;
+      color: #1a4a1a;
+      display: block;
+    }
+
+    .form-message.error {
+      background-color: #faeded;
+      border-color: #d32f2f;
+      color: #5c1919;
+      display: block;
+    }
+
+    /* Responsive styling */
+    @media (max-width: 860px) {
+      .contact-container {
+        flex-direction: column;
+        gap: 28px;
+      }
+      .contact-info-panel, .contact-form-panel {
+        width: 100%;
+        flex: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .form-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .contact-form-panel {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     TOP UTILITY BAR
+═══════════════════════════════════════════════ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>Oracle ERP Cloud Consulting &amp; Advisory Service</span>
+    <div>
+      <span><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></span>
+      <span><a href="#">Client Portal</a></span>
+      <span><a href="#">Request a Consultation</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="logo-block">
+      <div class="logo-mark"><span>U</span></div>
+      <div class="logo-text">
+        <h1>UPARI Consulting</h1>
+        <p>Oracle ERP Cloud Advisory &amp; Implementation</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════ -->
+<nav>
+  <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+  <div class="nav-inner">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="ucservices/invoice-scan.html">Services</a>
+    <a href="industries.html">Industries</a>
+    <a href="#">Resources</a>
+    <a href="contact.html" class="active">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     BREADCRUMB
+═══════════════════════════════════════════════ -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="index.html">Home</a>
+    <span>›</span>
+    Contact Us
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE BODY
+═══════════════════════════════════════════════ -->
+<div class="full-body">
+  <h1>Contact UPARI Consulting</h1>
+  
+  <div class="contact-container">
+    
+    <!-- LEFT PANEL: CONTACT INFO -->
+    <aside class="contact-info-panel">
+      <div class="contact-info-header">
+        <h2>Advisory &amp; Engagement</h2>
+        <p>
+          We do not operate as a volume-driven practice. Every inquiry is reviewed by one of our senior principals to ensure we are a correct fit for your ERP transformation.
+        </p>
+      </div>
+      
+      <div class="contact-method">
+        <strong>Direct Inquiries</strong>
+        <p><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></p>
+      </div>
+      
+      <div class="contact-method">
+        <strong>Telephone</strong>
+        <p>+1 (000) 000-0000</p>
+      </div>
+      
+      <div class="contact-method">
+        <strong>Business Hours</strong>
+        <p>Monday – Friday: 08:30 – 17:30 EST</p>
+      </div>
+      
+      <div class="contact-method">
+        <strong>Corporate Address</strong>
+        <p>
+          UPARI Consulting LLC<br>
+          [Address Line 1]<br>
+          [City, State, ZIP]
+        </p>
+      </div>
+      
+      <div class="contact-method">
+        <strong>Client Portal</strong>
+        <p>Existing managed services clients can submit tickets directly via the client portal.</p>
+      </div>
+    </aside>
+    
+    <!-- RIGHT PANEL: CONTACT FORM -->
+    <main class="contact-form-panel">
+      <h3>Request a Consultation</h3>
+      <p class="form-subtitle">
+        Please complete the fields below to schedule an initial advisory call with an Oracle practitioner.
+      </p>
+      
+      <form id="contact-form">
+        <!-- Web3Forms Configuration -->
+        <!-- Replace value with your access key e.g. "a1b2c3d4-e5f6-7a8b-9c0d-e1f2a3b4c5d6" -->
+        <input type="hidden" name="access_key" value="84c6cb0d-45c5-4162-b09b-b07edf016558">
+        <input type="hidden" name="subject" value="New Consultation Request - UPARI Consulting">
+        <input type="hidden" name="from_name" value="UPARI Website Form">
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required placeholder="e.g. Sarah Jenkins">
+          </div>
+          <div class="form-group">
+            <label for="email">Business Email *</label>
+            <input type="email" id="email" name="email" required placeholder="e.g. sarah.jenkins@enterprise.com">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. +1 (555) 019-2834">
+          </div>
+          <div class="form-group">
+            <label for="interest">Area of Interest *</label>
+            <select id="interest" name="service_interest" required>
+              <option value="" disabled selected>Select an option...</option>
+              <option value="EBS to SaaS Migration">EBS to Oracle SaaS Cloud Migration</option>
+              <option value="Invoice Scanning AP Automation">Invoice Scanning &amp; AP Automation</option>
+              <option value="Chart of Accounts Design">Chart of Accounts Design</option>
+              <option value="Day 2 Support / Retainer">Day 2 Maintenance &amp; Support</option>
+              <option value="Integration (OIC/MuleSoft/Boomi)">Integration Development Support</option>
+              <option value="RFP &amp; Vendor Selection">Implementation RFP &amp; Vendor Selection</option>
+              <option value="Other Oracle Advisory">Other Oracle ERP Advisory</option>
+              <option value="AI Agents in Oracle ERP">AI Agents in Oracle ERP</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Program Objectives / Requirements *</label>
+          <textarea id="message" name="message" required placeholder="Please provide details about your current systems, scope, timeline, and goals."></textarea>
+        </div>
+        
+        <button type="submit" class="btn-submit">Submit Consultation Request</button>
+        
+        <div id="form-result" class="form-message"></div>
+      </form>
+    </main>
+    
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>UPARI Consulting</h4>
+      <p>Oracle ERP Cloud Advisory &amp; Implementation Services. Trusted by enterprise organisations
+         across industries since <span id="footer-year"></span>.</p>
+      <p style="margin-top:10px;">
+        [Address Line 1]<br>
+        [City, State, ZIP]<br>
+        +1 (000) 000-0000
+      </p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html#cat-advisory">ERP Advisory</a></li>
+        <li><a href="services.html#cat-implementation">ERP Implementation</a></li>
+        <li><a href="ucservices/coa-design.html">CoA Design</a></li>
+        <li><a href="ucservices/integration.html">Integration Support</a></li>
+        <li><a href="ucservices/day2-support.html">Day 2 Maintenance</a></li>
+        <li><a href="ucservices/job-aids.html">Job Aids &amp; SOPs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#">Client Portal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="footer-year-2"></span> UPARI Consulting. All rights reserved.</span>
+    <span>
+      <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="terms.html">Terms of Use</a> &nbsp;|&nbsp;
+      <a href="accessibility.html">Accessibility</a>
+    </span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  /* Auto-fill both footer year spans */
+  const yr = new Date().getFullYear();
+  const y1 = document.getElementById('footer-year');
+  const y2 = document.getElementById('footer-year-2');
+  if (y1) y1.textContent = yr;
+  if (y2) y2.textContent = yr;
+
+  /* AJAX Form submission to Web3Forms */
+  const form = document.getElementById('contact-form');
+  const formResult = document.getElementById('form-result');
+
+  if (form && formResult) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending Message...';
+      
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+      
+      // Reset status classes
+      formResult.className = 'form-message';
+      formResult.style.display = 'none';
+      
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: json
+      })
+      .then(async (response) => {
+        let jsonRes = await response.json();
+        if (response.status == 200) {
+          formResult.classList.add('success');
+          formResult.innerHTML = '<strong>Request Sent.</strong> Thank you for your inquiry. A senior UPARI consultant will contact you within one business day.';
+          form.reset();
+        } else {
+          console.log(response);
+          formResult.classList.add('error');
+          formResult.innerHTML = '<strong>Submission Failed.</strong> ' + (jsonRes.message || 'Please check your information and try again.');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        formResult.classList.add('error');
+        formResult.innerHTML = '<strong>Connection Error.</strong> Unable to reach the server. Please try again later or contact us directly at info@upariconsulting.com.';
+      })
+      .then(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+        formResult.style.display = 'block';
+        formResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    });
+  }
+</script>
+
+</body>
+</html>

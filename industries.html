@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industries – UPARI Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Merriweather+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── INDUSTRIES PAGE ONLY ─────────────────────────────── */
+
+    .full-body {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+    .full-body h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    /* ── JUMP NAV ── */
+    .jump-nav {
+      background-color: #f0ede6;
+      border-top: 1px solid var(--border);
+      border-bottom: 3px solid var(--gold);
+      padding: 0 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+    }
+    .jump-nav-inner a {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 10px 16px;
+      border-right: 1px solid var(--border);
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .jump-nav-inner a:first-child { border-left: 1px solid var(--border); }
+    .jump-nav-inner a:hover {
+      background-color: var(--navy);
+      color: var(--gold-light);
+    }
+
+    /* ── INDUSTRY SUMMARY GRID ── */
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      border: 1px solid var(--border);
+      margin: 28px 0 0;
+    }
+    .industry-grid-item {
+      text-align: center;
+      padding: 22px 14px 18px;
+      border-right: 1px solid var(--border);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .industry-grid-item:last-child { border-right: none; }
+    .industry-grid-item:hover { background-color: #f0ede6; }
+    .industry-grid-item .ind-icon {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .industry-grid-item .ind-name {
+      display: block;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+    }
+    .industry-grid-item .ind-desc {
+      display: block;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    /* ── INDUSTRY SECTION ── */
+    .industry-section {
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+    .industry-section:first-of-type {
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+    .industry-section:nth-of-type(odd)  { background-color: var(--white); }
+    .industry-section:nth-of-type(even) { background-color: #faf8f4; }
+
+    /* Banner bar */
+    .industry-banner {
+      background-color: var(--navy);
+      display: flex;
+      align-items: stretch;
+    }
+    .industry-banner-accent {
+      width: 6px;
+      background-color: var(--gold);
+      flex-shrink: 0;
+    }
+    .industry-banner-text {
+      padding: 16px 22px;
+      flex: 1;
+    }
+    .industry-banner-text h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 3px;
+      line-height: 1.25;
+    }
+    .industry-banner-text p {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13px;
+      color: #8aabcc;
+      margin: 0;
+    }
+    .industry-banner-icon {
+      font-size: 32px;
+      padding: 16px 24px 16px 8px;
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+    }
+
+    /* Section body */
+    .industry-body {
+      padding: 28px 28px 24px;
+    }
+    .industry-body > p {
+      font-family: 'Merriweather', serif;
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    /* Two-column layout */
+    .industry-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 22px;
+    }
+    .ind-col h3 {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .ind-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .ind-col ul li {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      padding: 7px 0 7px 18px;
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+      line-height: 1.5;
+    }
+    .ind-col ul li:last-child { border-bottom: none; }
+    .ind-col ul li::before {
+      content: '›';
+      position: absolute;
+      left: 3px;
+      color: var(--gold);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* Service tags */
+    .ind-services-row { margin-top: 4px; }
+    .ind-services-row p {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .service-tags a {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      background-color: var(--sidebar-bg);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .service-tags a:hover {
+      background-color: var(--navy);
+      color: var(--gold-light);
+      border-color: var(--navy);
+    }
+
+    /* Stat callout */
+    .ind-stat {
+      background-color: var(--navy);
+      border-left: 5px solid var(--gold);
+      padding: 14px 18px;
+      margin: 20px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .ind-stat .stat-num {
+      font-family: 'Merriweather', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--gold-light);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ind-stat .stat-text {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13px;
+      color: #8aabcc;
+      line-height: 1.6;
+    }
+
+    /* Inline nudge */
+    .inline-nudge {
+      background-color: #edf3fa;
+      border: 1px solid #b8cde4;
+      border-left: 4px solid var(--navy-light);
+      padding: 12px 18px;
+      margin: 0 0 0;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .inline-nudge strong { color: var(--navy); }
+    .inline-nudge a {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--navy-dark);
+      background-color: var(--gold);
+      padding: 7px 16px;
+      text-decoration: none;
+      border: 1px solid var(--gold-light);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .inline-nudge a:hover { background-color: var(--gold-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .industry-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .industry-cols   { grid-template-columns: 1fr; gap: 20px; }
+      .industry-grid   { grid-template-columns: repeat(2, 1fr); }
+      .ind-stat        { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .inline-nudge    { flex-direction: column; align-items: flex-start; }
+      .full-body       { padding: 20px 14px 40px; }
+      .industry-body   { padding: 20px 16px 18px; }
+    }
+    @media (max-width: 480px) {
+      .industry-grid       { grid-template-columns: 1fr 1fr; }
+      .industry-banner-icon { display: none; }
+      .full-body h1        { font-size: 21px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP UTILITY BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>Oracle ERP Cloud Consulting &amp; Advisory Services</span>
+    <div>
+      <span><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></span>
+      <span><a href="#">Client Portal</a></span>
+      <span><a href="#">Request a Consultation</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="logo-block">
+      <div class="logo-mark"><span>U</span></div>
+      <div class="logo-text">
+        <h1>UPARI Consulting</h1>
+        <p>Oracle ERP Cloud Advisory &amp; Implementation</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+  <div class="nav-inner">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="industries.html" class="active">Industries</a>
+    <a href="#">Resources</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="homepage.html">Home</a>
+    <span>›</span>
+    Industries Served
+  </div>
+</div>
+
+<!-- JUMP NAV -->
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#financial-services">Financial Services</a>
+    <a href="#healthcare">Healthcare</a>
+    <a href="#hi-tech">Hi-Tech</a>
+    <a href="#retail">Retail &amp; Distribution</a>
+    <a href="#higher-education">Higher Education</a>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="full-body">
+
+  <h1>Industries Served</h1>
+
+  <p class="intro-para">
+    UPARI Consulting brings Oracle ERP Cloud expertise to five core industries. Our practitioners
+    have not simply implemented Oracle in these sectors — they have worked within them, which
+    means we understand the regulatory constraints, operational pressures, and reporting
+    requirements that shape every configuration decision. Select your industry below or scroll
+    to explore.
+  </p>
+
+  <!-- INDUSTRY SUMMARY GRID -->
+  <div class="industry-grid">
+    <a href="#financial-services" class="industry-grid-item">
+      <span class="ind-icon">🏦</span>
+      <span class="ind-name">Financial Services</span>
+      <span class="ind-desc">Banking, insurance &amp; capital markets</span>
+    </a>
+    <a href="#healthcare" class="industry-grid-item">
+      <span class="ind-icon">🏥</span>
+      <span class="ind-name">Healthcare</span>
+      <span class="ind-desc">Providers, payers &amp; health systems</span>
+    </a>
+    <a href="#hi-tech" class="industry-grid-item">
+      <span class="ind-icon">💻</span>
+      <span class="ind-name">Hi-Tech</span>
+      <span class="ind-desc">Software, SaaS &amp; technology firms</span>
+    </a>
+    <a href="#retail" class="industry-grid-item">
+      <span class="ind-icon">🛒</span>
+      <span class="ind-name">Retail &amp; Distribution</span>
+      <span class="ind-desc">Omnichannel retail &amp; supply chain</span>
+    </a>
+    <a href="#higher-education" class="industry-grid-item">
+      <span class="ind-icon">🎓</span>
+      <span class="ind-name">Higher Education</span>
+      <span class="ind-desc">Universities &amp; academic institutions</span>
+    </a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       1. FINANCIAL SERVICES
+  ═══════════════════════════════════════════ -->
+  <div id="financial-services" class="industry-section">
+    <div class="industry-banner">
+      <div class="industry-banner-accent"></div>
+      <div class="industry-banner-text">
+        <h2>Financial Services</h2>
+        <p>Banking, insurance, asset management, and capital markets organisations</p>
+      </div>
+      <div class="industry-banner-icon">🏦</div>
+    </div>
+    <div class="industry-body">
+      <p>
+        Financial services organisations face a uniquely demanding Oracle ERP environment —
+        multi-entity structures, strict regulatory reporting obligations, complex intercompany
+        transactions, and audit requirements that leave little room for configuration error.
+        UPARI's practitioners have implemented Oracle Fusion Finance across banking, insurance,
+        and investment management environments, and understand the difference between a
+        technically correct implementation and one that survives a regulatory examination.
+      </p>
+      <div class="industry-cols">
+        <div class="ind-col">
+          <h3>Common Challenges We Address</h3>
+          <ul>
+            <li>Month-end close cycles exceeding 10 days due to manual consolidation processes</li>
+            <li>Regulatory reporting — IFRS 9, IFRS 17, Solvency II — not embedded in the ERP</li>
+            <li>Multi-entity, multi-currency ledger complexity across jurisdictions</li>
+            <li>Intercompany eliminations managed outside Oracle in spreadsheets</li>
+            <li>Audit trails that do not meet internal or external examination standards</li>
+            <li>High supplier invoice volumes processed without automation or routing controls</li>
+            <li>Siloed systems creating reconciliation overhead between front and back office</li>
+          </ul>
+        </div>
+        <div class="ind-col">
+          <h3>What UPARI Delivers in This Sector</h3>
+          <ul>
+            <li>Chart of Accounts design aligned to regulatory and group reporting requirements</li>
+            <li>Intercompany and consolidation configuration within Oracle Fusion</li>
+            <li>Subledger accounting rule design for financial instrument transactions</li>
+            <li>Oracle Fusion AP automation — IDR, work queues, and approval workflows</li>
+            <li>Month-end close checklist design and period close task configuration</li>
+            <li>Integration between Oracle Fusion and front-office or treasury platforms</li>
+            <li>Post-go-live Day 2 support and quarterly Oracle update management</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ind-services-row">
+        <p>Relevant UPARI Services</p>
+        <div class="service-tags">
+          <a href="ucservices/coa-design.html">Chart of Accounts Design</a>
+          <a href="ucservices/invoice-scan.html">Invoice Scanning &amp; Work Queue</a>
+          <a href="ucservices/month-end.html">Month End Close Support</a>
+          <a href="ucservices/integration.html">Integration Development</a>
+          <a href="ucservices/day2-support.html">Day 2 Maintenance &amp; Support</a>
+          <a href="ucservices/ebs-to-oracle.html">EBS to Oracle Cloud Migration</a>
+        </div>
+      </div>
+      <div class="ind-stat">
+        <span class="stat-num">40%</span>
+        <span class="stat-text">
+          Average reduction in financial close cycle time reported by Oracle Fusion Finance
+          customers in financial services after implementing automated close management and
+          subledger accounting rules — versus prior manual processes.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="inline-nudge">
+    <span><strong>Operating in financial services?</strong> Speak with a UPARI consultant who has delivered Oracle Fusion in regulated financial environments.</span>
+    <a href="contact.html">Talk to Our FS Team →</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       2. HEALTHCARE
+  ═══════════════════════════════════════════ -->
+  <div id="healthcare" class="industry-section">
+    <div class="industry-banner">
+      <div class="industry-banner-accent"></div>
+      <div class="industry-banner-text">
+        <h2>Healthcare</h2>
+        <p>Hospital systems, health networks, payers, and healthcare services organisations</p>
+      </div>
+      <div class="industry-banner-icon">🏥</div>
+    </div>
+    <div class="industry-body">
+      <p>
+        Healthcare organisations operate under financial and operational constraints unlike any
+        other sector — fund accounting, grant management, complex workforce structures, and
+        compliance obligations spanning financial, clinical, and procurement functions. UPARI
+        understands that in healthcare, a poorly configured ERP is not just a finance problem;
+        it has downstream consequences for procurement, workforce, and patient services.
+      </p>
+      <div class="industry-cols">
+        <div class="ind-col">
+          <h3>Common Challenges We Address</h3>
+          <ul>
+            <li>Fund and grant accounting requirements not met by standard Oracle configuration</li>
+            <li>Fragmented procurement across clinical departments with no centralised visibility</li>
+            <li>Complex workforce costing — multiple pay rates, shift patterns, and cost allocations</li>
+            <li>Legacy systems (PeopleSoft, Lawson, Meditech) requiring migration or integration</li>
+            <li>High supplier invoice volumes stressing manual AP processes</li>
+            <li>Regulatory and audit reporting — CMS and HIPAA financial compliance obligations</li>
+            <li>Consolidation requirements across multiple legal entities within a health network</li>
+          </ul>
+        </div>
+        <div class="ind-col">
+          <h3>What UPARI Delivers in This Sector</h3>
+          <ul>
+            <li>Oracle Fusion Finance configuration for fund and grant accounting structures</li>
+            <li>Procurement Cloud setup for clinical and non-clinical supply categories</li>
+            <li>AP automation — IDR and work queue management for high invoice volumes</li>
+            <li>Integration between Oracle Fusion and clinical or payroll systems</li>
+            <li>Chart of Accounts design for multi-entity health network reporting requirements</li>
+            <li>Process documentation and job aids tailored to healthcare finance teams</li>
+            <li>EBS to Oracle Fusion Cloud migration for legacy health system customers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ind-services-row">
+        <p>Relevant UPARI Services</p>
+        <div class="service-tags">
+          <a href="ucservices/invoice-scan.html">Invoice Scanning &amp; Work Queue</a>
+          <a href="ucservices/coa-design.html">Chart of Accounts Design</a>
+          <a href="ucservices/ebs-to-oracle.html">EBS to Oracle Cloud Migration</a>
+          <a href="ucservices/integration.html">Integration Development</a>
+          <a href="ucservices/job-aids.html">Job Aids &amp; Documentation</a>
+          <a href="ucservices/data-migration.html">Data Migration Tools</a>
+        </div>
+      </div>
+      <div class="ind-stat">
+        <span class="stat-num">60%</span>
+        <span class="stat-text">
+          Reduction in AP processing time achieved by healthcare organisations implementing
+          Oracle Intelligent Document Recognition alongside structured work queue management —
+          freeing finance staff for higher-value reconciliation and reporting work.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="inline-nudge">
+    <span><strong>Working in healthcare?</strong> UPARI has delivered Oracle Fusion in complex health network and payer environments across multiple regions.</span>
+    <a href="contact.html">Talk to Our Healthcare Team →</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       3. HI-TECH
+  ═══════════════════════════════════════════ -->
+  <div id="hi-tech" class="industry-section">
+    <div class="industry-banner">
+      <div class="industry-banner-accent"></div>
+      <div class="industry-banner-text">
+        <h2>Hi-Tech</h2>
+        <p>Software, SaaS, semiconductor, and technology products &amp; services companies</p>
+      </div>
+      <div class="industry-banner-icon">💻</div>
+    </div>
+    <div class="industry-body">
+      <p>
+        Hi-Tech companies grow fast, operate globally, and often outpace their ERP infrastructure.
+        Whether a SaaS company scaling toward IPO, a semiconductor business managing complex global
+        supply chains, or a technology services firm consolidating acquisitions onto a single
+        platform — UPARI brings Oracle Fusion expertise calibrated to the pace and complexity
+        of the technology sector.
+      </p>
+      <div class="industry-cols">
+        <div class="ind-col">
+          <h3>Common Challenges We Address</h3>
+          <ul>
+            <li>Revenue recognition complexity — ASC 606 / IFRS 15 for multi-element arrangements</li>
+            <li>Rapid growth outpacing the existing ERP and chart of accounts structure</li>
+            <li>Multi-country operations requiring localised tax and statutory reporting</li>
+            <li>M&amp;A integration — onboarding acquired entities onto Oracle Fusion quickly</li>
+            <li>High-volume subscription billing and deferred revenue management</li>
+            <li>Engineering and R&amp;D cost allocation across projects and cost centres</li>
+            <li>Integration between Oracle Fusion and Salesforce, Workday, or NetSuite</li>
+          </ul>
+        </div>
+        <div class="ind-col">
+          <h3>What UPARI Delivers in This Sector</h3>
+          <ul>
+            <li>Oracle Fusion Finance configuration for ASC 606 revenue recognition</li>
+            <li>Scalable Chart of Accounts design for fast-growing, acquisition-active businesses</li>
+            <li>Multi-country Oracle Fusion rollout with localisation and tax configuration</li>
+            <li>Integration between Oracle Fusion and CRM, HRIS, and billing platforms</li>
+            <li>Project costing configuration for R&amp;D and professional services engagements</li>
+            <li>Testing automation to support frequent product releases and Oracle updates</li>
+            <li>Vendor selection advisory for companies choosing their first enterprise ERP</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ind-services-row">
+        <p>Relevant UPARI Services</p>
+        <div class="service-tags">
+          <a href="ucservices/coa-design.html">Chart of Accounts Design</a>
+          <a href="ucservices/integration.html">Integration Development (OIC, MuleSoft, Boomi)</a>
+          <a href="ucservices/testing-tools.html">Testing Automation Tools</a>
+          <a href="ucservices/rfp-selection.html">Implementation RFP &amp; Vendor Selection</a>
+          <a href="ucservices/data-migration.html">Data Migration Tools</a>
+          <a href="ucservices/day2-support.html">Day 2 Maintenance &amp; Support</a>
+        </div>
+      </div>
+      <div class="ind-stat">
+        <span class="stat-num">3×</span>
+        <span class="stat-text">
+          Faster M&amp;A entity onboarding achieved by hi-tech companies using Oracle Fusion's
+          shared service centre model and UPARI's pre-built configuration templates — compared
+          to greenfield implementations without structured accelerators.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="inline-nudge">
+    <span><strong>Scaling fast or integrating an acquisition?</strong> UPARI specialises in rapid Oracle Fusion deployments for high-growth technology companies.</span>
+    <a href="contact.html">Talk to Our Hi-Tech Team →</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       4. RETAIL & DISTRIBUTION
+  ═══════════════════════════════════════════ -->
+  <div id="retail" class="industry-section">
+    <div class="industry-banner">
+      <div class="industry-banner-accent"></div>
+      <div class="industry-banner-text">
+        <h2>Retail &amp; Distribution</h2>
+        <p>Omnichannel retailers, wholesalers, and distribution organisations</p>
+      </div>
+      <div class="industry-banner-icon">🛒</div>
+    </div>
+    <div class="industry-body">
+      <p>
+        Retail and distribution organisations depend on Oracle ERP to connect finance, inventory,
+        procurement, and supplier relationships in real time. Margin pressure, seasonal demand
+        volatility, and omnichannel complexity make a well-configured Oracle Fusion environment
+        not just operationally valuable — but commercially critical. UPARI has delivered Oracle
+        Fusion Finance, Procurement, and Supply Chain implementations across retail and
+        distribution organisations of varying scale and complexity.
+      </p>
+      <div class="industry-cols">
+        <div class="ind-col">
+          <h3>Common Challenges We Address</h3>
+          <ul>
+            <li>Inventory valuation discrepancies between Oracle and warehouse management systems</li>
+            <li>High supplier invoice volumes overwhelming manual AP processes</li>
+            <li>Seasonal close complexity — period-end accruals and promotional cost allocation</li>
+            <li>Multi-site, multi-currency procurement with inconsistent approval controls</li>
+            <li>Poor visibility into landed cost and supplier performance data</li>
+            <li>Legacy ERP systems (SAP, JDE, EBS) requiring migration to Oracle Cloud</li>
+            <li>Integration gaps between Oracle Fusion and POS, WMS, or e-commerce platforms</li>
+          </ul>
+        </div>
+        <div class="ind-col">
+          <h3>What UPARI Delivers in This Sector</h3>
+          <ul>
+            <li>Oracle Fusion Procurement Cloud — catalogues, supplier portal, approval hierarchies</li>
+            <li>AP automation — invoice scanning, IDR configuration, and work queue management</li>
+            <li>Inventory and cost accounting configuration within Oracle Fusion</li>
+            <li>Integration between Oracle Fusion and WMS, POS, and e-commerce platforms</li>
+            <li>Month-end close support for seasonal and promotional accounting cycles</li>
+            <li>Data migration from legacy ERP — item master, supplier records, open balances</li>
+            <li>Job aids and process documentation for store operations finance teams</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ind-services-row">
+        <p>Relevant UPARI Services</p>
+        <div class="service-tags">
+          <a href="ucservices/invoice-scan.html">Invoice Scanning &amp; Work Queue</a>
+          <a href="ucservices/integration.html">Integration Development</a>
+          <a href="ucservices/month-end.html">Month End Close Support</a>
+          <a href="ucservices/data-migration.html">Data Migration Tools</a>
+          <a href="ucservices/ebs-to-oracle.html">EBS to Oracle Cloud Migration</a>
+          <a href="ucservices/job-aids.html">Job Aids &amp; Documentation</a>
+        </div>
+      </div>
+      <div class="ind-stat">
+        <span class="stat-num">35%</span>
+        <span class="stat-text">
+          Average reduction in supplier payment processing cost for retail organisations
+          implementing Oracle AP automation with IDR and structured work queue management,
+          based on Oracle customer outcomes across the sector.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="inline-nudge">
+    <span><strong>Retail or distribution organisation on Oracle?</strong> UPARI can assist with AP automation, supply chain integration, or a full Oracle Cloud migration.</span>
+    <a href="contact.html">Talk to Our Retail Team →</a>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       5. HIGHER EDUCATION
+  ═══════════════════════════════════════════ -->
+  <div id="higher-education" class="industry-section">
+    <div class="industry-banner">
+      <div class="industry-banner-accent"></div>
+      <div class="industry-banner-text">
+        <h2>Higher Education</h2>
+        <p>Universities, colleges, research institutions, and academic bodies</p>
+      </div>
+      <div class="industry-banner-icon">🎓</div>
+    </div>
+    <div class="industry-body">
+      <p>
+        Higher education institutions face a distinctive financial management challenge —
+        combining the rigour of a regulated public or charitable entity with the operational
+        scale of a mid-to-large enterprise. Research grant management, tuition revenue
+        recognition, complex fund accounting, and the need to serve multiple internal
+        stakeholder groups simultaneously make Oracle Fusion configuration in this sector
+        genuinely specialised work. UPARI brings both the technical depth and sector
+        understanding to deliver it correctly.
+      </p>
+      <div class="industry-cols">
+        <div class="ind-col">
+          <h3>Common Challenges We Address</h3>
+          <ul>
+            <li>Research grant accounting — fund tracking, sponsor reporting, effort certification</li>
+            <li>Complex Chart of Accounts with fund, programme, and activity segment dimensions</li>
+            <li>Budgetary control requirements across academic departments and research units</li>
+            <li>Student fees and tuition revenue recognition under IFRS 15 or ASC 606</li>
+            <li>Procurement compliance — public procurement rules and tender obligations</li>
+            <li>Legacy systems (Banner, Agresso, Unit4) requiring migration or integration</li>
+            <li>Reporting obligations to governing bodies, funding councils, and external auditors</li>
+          </ul>
+        </div>
+        <div class="ind-col">
+          <h3>What UPARI Delivers in This Sector</h3>
+          <ul>
+            <li>Oracle Fusion Finance configuration for fund and grant accounting structures</li>
+            <li>Chart of Accounts design for research, teaching, and commercial activity streams</li>
+            <li>Grants Management module configuration and sponsor reporting setup</li>
+            <li>Budgetary control aligned to departmental and faculty governance structures</li>
+            <li>Integration with student information systems and research management platforms</li>
+            <li>AP automation for high-volume supplier and expense claim processing</li>
+            <li>Process documentation and training for finance and research administration teams</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ind-services-row">
+        <p>Relevant UPARI Services</p>
+        <div class="service-tags">
+          <a href="ucservices/coa-design.html">Chart of Accounts Design</a>
+          <a href="ucservices/invoice-scan.html">Invoice Scanning &amp; Work Queue</a>
+          <a href="ucservices/integration.html">Integration Development</a>
+          <a href="ucservices/month-end.html">Month End Close Support</a>
+          <a href="ucservices/job-aids.html">Job Aids &amp; Documentation</a>
+          <a href="ucservices/rfp-selection.html">Implementation RFP &amp; Vendor Selection</a>
+        </div>
+      </div>
+      <div class="ind-stat">
+        <span class="stat-num">50%</span>
+        <span class="stat-text">
+          Reduction in grant reporting preparation time achieved by higher education institutions
+          using Oracle Fusion Grants Management with automated sponsor report generation —
+          versus manual extraction from legacy finance systems.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="inline-nudge">
+    <span><strong>University or research institution moving to Oracle Cloud?</strong> UPARI understands fund accounting, grant management, and higher education governance structures.</span>
+    <a href="contact.html">Talk to Our Education Team →</a>
+  </div>
+
+
+  <!-- FINAL CTA -->
+  <div class="cta-block" style="margin-top: 48px;">
+    <div>
+      <strong>Your sector has specific requirements — so does our approach.</strong>
+      <p>
+        Contact UPARI to discuss how our Oracle Fusion experience applies directly to your
+        organisation's context, processes, and reporting obligations.
+      </p>
+    </div>
+    <a href="contact.html" class="btn">Get in Touch</a>
+  </div>
+
+</div><!-- end .full-body -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>UPARI Consulting</h4>
+      <p>Oracle ERP Cloud Advisory &amp; Implementation Services. Trusted by enterprise
+         organisations across industries since <span id="footer-year"></span>.</p>
+      <p style="margin-top:10px;">
+        [Address Line 1]<br>[City, State, ZIP]<br>+1 (000) 000-0000
+      </p>
+    </div>
+    <div>
+      <h4>Industries</h4>
+      <ul>
+        <li><a href="#financial-services">Financial Services</a></li>
+        <li><a href="#healthcare">Healthcare</a></li>
+        <li><a href="#hi-tech">Hi-Tech</a></li>
+        <li><a href="#retail">Retail &amp; Distribution</a></li>
+        <li><a href="#higher-education">Higher Education</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#">Client Portal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="footer-year-2"></span> UPARI Consulting. All rights reserved.</span>
+    <span>
+      <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="terms.html">Terms of Use</a> &nbsp;|&nbsp;
+      <a href="accessibility.html">Accessibility</a>
+    </span>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  const yr = new Date().getFullYear();
+  const y1 = document.getElementById('footer-year');
+  const y2 = document.getElementById('footer-year-2');
+  if (y1) y1.textContent = yr;
+  if (y2) y2.textContent = yr;
+</script>
+</body>
+</html>

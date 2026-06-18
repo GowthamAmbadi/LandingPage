@@ -1,298 +1,795 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Upari Consulting — AI | Oracle Cloud | ERP | ServiceNow</title>
-  <meta name="description"
-    content="Upari Consulting delivers 30+ years of enterprise implementation experience across Oracle Cloud, ERP, AI, and ServiceNow." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services &amp; Offerings – UPARI Consulting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Merriweather+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── SERVICES PAGE ONLY ─────────────────────────────────── */
+
+    /* Full-width content area — no sidebar on this page */
+    .full-body {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    /* Jump-nav bar — sits below breadcrumb */
+    .jump-nav {
+      background-color: #f0ede6;
+      border-top: 1px solid var(--border);
+      border-bottom: 3px solid var(--gold);
+      padding: 0 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .jump-nav-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+    }
+    .jump-nav-inner a {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 10px 14px;
+      border-right: 1px solid var(--border);
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .jump-nav-inner a:first-child { border-left: 1px solid var(--border); }
+    .jump-nav-inner a:hover {
+      background-color: var(--navy);
+      color: var(--gold-light);
+    }
+
+    /* Summary table at the top */
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0 0;
+      font-size: 14px;
+      font-family: 'Merriweather Sans', sans-serif;
+    }
+    .services-table thead tr {
+      background-color: var(--navy);
+      color: var(--white);
+    }
+    .services-table thead th {
+      padding: 11px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .services-table tbody tr {
+      border-bottom: 1px solid var(--border-light);
+    }
+    .services-table tbody tr:nth-child(even) {
+      background-color: #f6f4ef;
+    }
+    .services-table tbody tr:hover {
+      background-color: #ede8de;
+    }
+    .services-table td {
+      padding: 10px 16px;
+      vertical-align: top;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .services-table td:first-child {
+      font-weight: 600;
+      color: var(--navy);
+      width: 30%;
+    }
+    .services-table td a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .services-table td a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+    .services-table .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 7px;
+      border: 1px solid;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .tag-impl  { color: #1a5a9a; border-color: #1a5a9a; background: #edf3fa; }
+    .tag-ops   { color: #3a7a3a; border-color: #3a7a3a; background: #edfaed; }
+    .tag-tools { color: #7a4a10; border-color: #b8882a; background: #faf0dc; }
+    .tag-adv   { color: #6a3a7a; border-color: #6a3a7a; background: #f5eefa; }
+
+    /* Category header bar */
+    .category-header {
+      background-color: var(--navy);
+      color: var(--white);
+      padding: 12px 22px;
+      margin: 48px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .category-header .cat-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .category-header h2 {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--gold-light);
+      margin: 0;
+    }
+    .category-header p {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13px;
+      color: #8aabcc;
+      margin: 0;
+    }
+
+    /* Individual service block */
+    .service-block {
+      border: 1px solid var(--border);
+      border-top: none;
+      padding: 28px 28px 24px;
+    }
+    .service-block:nth-child(even) {
+      background-color: #faf8f4;
+    }
+    .service-block:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-block h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
+      line-height: 1.3;
+    }
+    .service-block p {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 12px;
+      font-family: 'Merriweather', serif;
+    }
+    .service-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .service-block ul li {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      padding: 6px 10px 6px 20px;
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+      line-height: 1.5;
+    }
+    .service-block ul li:last-child { border-bottom: none; }
+    .service-block ul li::before {
+      content: '›';
+      position: absolute;
+      left: 6px;
+      color: var(--gold);
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    /* Inline nudge — compact contact prompt */
+    .inline-nudge {
+      background-color: #edf3fa;
+      border: 1px solid #b8cde4;
+      border-left: 4px solid var(--navy-light);
+      padding: 12px 18px;
+      margin: 24px 0 0;
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .inline-nudge strong { color: var(--navy); }
+    .inline-nudge a {
+      font-family: 'Merriweather Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--navy-dark);
+      background-color: var(--gold);
+      padding: 7px 16px;
+      text-decoration: none;
+      border: 1px solid var(--gold-light);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .inline-nudge a:hover {
+      background-color: var(--gold-light);
+      color: var(--navy-dark);
+    }
+
+    /* Page intro h1 — full width, no sidebar */
+    .full-body h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .jump-nav-inner a { font-size: 11px; padding: 9px 10px; }
+      .service-block ul { grid-template-columns: 1fr; }
+      .services-table td:first-child { width: auto; }
+      .inline-nudge { flex-direction: column; align-items: flex-start; }
+      .category-header { flex-direction: column; align-items: flex-start; gap: 4px; }
+    }
+    @media (max-width: 480px) {
+      .full-body { padding: 20px 14px 40px; }
+      .service-block { padding: 20px 16px; }
+      .services-table { font-size: 13px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ══ NAV ══════════════════════════════════════════════════ -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo"><span class="brand">Upari</span><span class="accent"> Consulting</span></a>
-            <ul class="nav-links">
-        <li><a href="index.html#methodology">Our Approach</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#industries">Industries</a></li>
-        <li><a href="index.html#technologies">Technologies</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-      <div class="nav-right">
-        <button class="nav-cta" onclick="openModal()">Get in Touch</button>
-        <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="toggleMobile()">
-          <span></span><span></span><span></span>
-        </button>
+<!-- ══════════════════════════════════════════════════════════
+     TOP UTILITY BAR
+═══════════════════════════════════════════════════════════ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>Oracle ERP Cloud Consulting &amp; Advisory Services</span>
+    <div>
+      <span><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></span>
+      <span><a href="#">Client Portal</a></span>
+      <span><a href="#">Request a Consultation</a></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="logo-block">
+      <div class="logo-mark"><span>U</span></div>
+      <div class="logo-text">
+        <h1>UPARI Consulting</h1>
+        <p>Oracle ERP Cloud Advisory &amp; Implementation</p>
       </div>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#methodology" onclick="closeMobile()">Our Approach</a>
-    <a href="#services" onclick="closeMobile()">Services</a>
-    <a href="#industries" onclick="closeMobile()">Industries</a>
-    <a href="index.html#technologies" onclick="closeMobile()">Technologies</a>
-    <a href="careers.html" onclick="closeMobile()">Careers</a>
-    <a href="index.html#contact" onclick="closeMobile()">Contact</a>
-    <a class="mob-cta" onclick="closeMobile(); openModal();">Get in Touch →</a>
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════════ -->
+<nav>
+  <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+  <div class="nav-inner">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="ucservices/invoice-scan.html">Services</a>
+    <a href="industries.html">Industries</a>
+    <a href="#">Resources</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     BREADCRUMB
+═══════════════════════════════════════════════════════════ -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="homepage.html">Home</a>
+    <span>›</span>
+    Services &amp; Offerings
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     JUMP NAVIGATION BAR
+     One click to any service section on this page
+═══════════════════════════════════════════════════════════ -->
+<div class="jump-nav">
+  <div class="jump-nav-inner">
+    <a href="#cat-implementation">Implementation</a>
+    <a href="#cat-operations">Operations &amp; Support</a>
+    <a href="#cat-tools">Tools &amp; Automation</a>
+    <a href="#cat-advisory">Advisory</a>
+    <a href="#services-overview">Full Overview ↓</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     MAIN CONTENT — Full width, no sidebar
+═══════════════════════════════════════════════════════════ -->
+<div class="full-body">
+
+  <h1>Services &amp; Offerings</h1>
+
+  <p class="intro-para">
+    UPARI Consulting provides a comprehensive range of Oracle ERP Cloud services — from initial
+    strategy and implementation through to long-term operational support. Every engagement is
+    staffed by senior practitioners with direct Oracle Fusion experience. Use the navigation above
+    to jump to a category, or browse the full overview below.
+  </p>
+
+  <!-- ══════════════════════════════
+       SUMMARY TABLE
+  ═══════════════════════════════ -->
+  <h2 id="services-overview" style="font-family:'Merriweather',serif; font-size:18px; font-weight:700; color:var(--navy); margin:32px 0 0; padding-left:12px; border-left:4px solid var(--gold); line-height:1.35;">
+    All Services at a Glance
+  </h2>
+
+  <table class="services-table">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Description</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#invoice-scanning">Invoice Scanning &amp; Work Queue Management</a></td>
+        <td>AP automation using Oracle IDR, routing rules, and exception handling queues.</td>
+        <td><span class="tag tag-impl">Implementation</span></td>
+      </tr>
+      <tr>
+        <td><a href="#ebs-migration">EBS to Oracle SaaS Cloud Migration</a></td>
+        <td>Structured migration from Oracle E-Business Suite to Oracle Fusion Cloud.</td>
+        <td><span class="tag tag-impl">Implementation</span></td>
+      </tr>
+      <tr>
+        <td><a href="#coa-design">Chart of Accounts Design</a></td>
+        <td>Segment structure, value sets, and cross-validation rules for Oracle Fusion Finance.</td>
+        <td><span class="tag tag-impl">Implementation</span></td>
+      </tr>
+      <tr>
+        <td><a href="#rfp-selection">Implementation RFP &amp; Vendor Selection</a></td>
+        <td>End-to-end vendor selection process — RFP design, evaluation, and due diligence.</td>
+        <td><span class="tag tag-adv">Advisory</span></td>
+      </tr>
+      <tr>
+        <td><a href="#sales-support">Sales Support</a></td>
+        <td>Pre-sales and bid support for Oracle partners — solution design and costing.</td>
+        <td><span class="tag tag-adv">Advisory</span></td>
+      </tr>
+      <tr>
+        <td><a href="#testing-tools">Testing Automation Tools</a></td>
+        <td>Automated test script development and regression packs for Oracle Fusion updates.</td>
+        <td><span class="tag tag-tools">Tools</span></td>
+      </tr>
+      <tr>
+        <td><a href="#month-end">Month End Close Support</a></td>
+        <td>Close checklist design, subledger accounting review, and finance team training.</td>
+        <td><span class="tag tag-ops">Operations</span></td>
+      </tr>
+      <tr>
+        <td><a href="#day2-support">Day 2 Maintenance &amp; Support</a></td>
+        <td>Retained senior Oracle support — break-fix, enhancements, and patch management.</td>
+        <td><span class="tag tag-ops">Operations</span></td>
+      </tr>
+      <tr>
+        <td><a href="#data-migration">Data Migration Automation Tools</a></td>
+        <td>Proprietary tooling for FBDI/HDL-based data migration with reconciliation reporting.</td>
+        <td><span class="tag tag-tools">Tools</span></td>
+      </tr>
+      <tr>
+        <td><a href="#integration">Integration Development (OIC, MuleSoft, Boomi)</a></td>
+        <td>Integration design and development across leading Oracle middleware platforms.</td>
+        <td><span class="tag tag-tools">Tools</span></td>
+      </tr>
+      <tr>
+        <td><a href="#job-aids">Job Aids &amp; Process Documentation</a></td>
+        <td>Role-based SOPs, quick reference guides, and train-the-trainer material.</td>
+        <td><span class="tag tag-ops">Operations</span></td>
+      </tr>
+      <tr>
+        <td><a href="#service-now">Service Now Offerings</a></td>
+        <td>ServiceNow–Oracle Fusion integration and ITSM workflow alignment.</td>
+        <td><span class="tag tag-tools">Tools</span></td>
+      </tr>
+      <tr>
+        <td><a href="#ai-agents">AI Agents in Oracle ERP</a></td>
+        <td>Autonomous workflows and AI-driven automation built natively for Oracle ERP Cloud.</td>
+        <td><span class="tag tag-tools">Tools</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ══════════════════════════════════════════════════════
+       CATEGORY 1 — IMPLEMENTATION
+  ══════════════════════════════════════════════════════ -->
+  <div id="cat-implementation" class="category-header">
+    <span class="cat-icon">⚙️</span>
+    <div>
+      <h2>Implementation</h2>
+      <p>Deployment, configuration, and migration services for Oracle Fusion Cloud</p>
+    </div>
   </div>
 
-  <!-- ══ PRODUCTS & SERVICES — ECOSYSTEM ════════════════════════ -->
-  <section class="section ecosystem-section" id="services">
-    <div class="wrap">
-      <div class="section-header center reveal">
-        <span class="eyebrow">Products &amp; Services</span>
-        <h2 class="section-title">Customer-Centered Transformation Ecosystem</h2>
-        <p class="section-sub">Every service we deliver is orchestrated around your outcomes — the customer always at
-          the center of our ecosystem.</p>
-      </div>
+  <div id="invoice-scanning" class="service-block">
+    <h3>Invoice Scanning and Work Queue Management</h3>
+    <p>
+      UPARI configures and optimises Oracle's Intelligent Document Recognition (IDR) engine,
+      automated routing rules, and AP work queues — reducing manual processing effort and
+      accelerating invoice cycle times across your payables function.
+    </p>
+    <ul>
+      <li>Oracle IDR configuration and tuning</li>
+      <li>Work queue design — routing, thresholds, escalation paths</li>
+      <li>AP Invoice Approval workflow integration</li>
+      <li>Exception reporting and SLA dashboards</li>
+    </ul>
+  </div>
 
+  <div id="ebs-migration" class="service-block">
+    <h3>EBS to Oracle SaaS Cloud Migration</h3>
+    <p>
+      Migrating from Oracle E-Business Suite to Oracle Fusion Cloud requires deep knowledge of
+      both platforms. UPARI brings a structured, low-risk migration methodology covering
+      functional design, data extraction and cleansing, Fusion re-configuration, cutover
+      planning, and hypercare support.
+    </p>
+    <ul>
+      <li>Current-state EBS assessment and gap analysis</li>
+      <li>Fusion configuration aligned to your business processes</li>
+      <li>Data migration using Oracle Data Management tooling</li>
+      <li>Parallel run support and cutover coordination</li>
+      <li>Post-migration stabilisation and hypercare</li>
+      <li>Knowledge transfer and internal team enablement</li>
+    </ul>
+  </div>
 
+  <div id="coa-design" class="service-block">
+    <h3>Chart of Accounts Design</h3>
+    <p>
+      The Chart of Accounts is the financial foundation of Oracle Fusion. UPARI provides
+      structured CoA design workshops and proprietary validation tooling to ensure your account
+      structure supports operational management, group consolidation, and statutory reporting —
+      before a single journal is posted.
+    </p>
+    <ul>
+      <li>Segment structure design — entity, cost centre, natural account, product</li>
+      <li>Value set definition and cross-validation rules</li>
+      <li>Mapping from legacy chart of accounts</li>
+      <li>Alignment with consolidation and intercompany requirements</li>
+    </ul>
+  </div>
 
-      <!-- Programs Grid -->
-      <div class="programs-grid" id="programs" style="margin-top: 80px;">
-        <div class="program-card reveal">
-          <div class="program-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-          <h3>Invoice Scanning &amp; Work Queue Management</h3>
-          <p>AI-powered invoice capture, routing, and approval automation for faster processing.</p>
-          
-        </div>
-        <div class="program-card reveal reveal-delay-1">
-          <div class="program-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-          <h3>EBS to Oracle SaaS Cloud Migration</h3>
-          <p>Seamless migration from Oracle EBS to Oracle Cloud with minimal disruption.</p>
-          
-        </div>
-        <div class="program-card reveal reveal-delay-2">
-          <div class="program-icon"><i class="fa-solid fa-sitemap"></i></div>
-          <h3>Chart of Accounts Design</h3>
-          <p>Future-ready financial structures for reporting, compliance, and scalability.</p>
-         
-        </div>
-        <div class="program-card reveal">
-          <div class="program-icon"><i class="fa-solid fa-headset"></i></div>
-          <h3>Sales Support</h3>
-          <p>Technical pre-sales support, solution scoping, and proposal assistance.</p>
-          
-        </div>
-        <div class="program-card reveal reveal-delay-1">
-          <div class="program-icon"><i class="fa-solid fa-list-check"></i></div>
-          <h3>Implementation RFP &amp; Vendor Selection</h3>
-          <p>RFP creation and vendor evaluation to select the right implementation partner.</p>
-          
-        </div>
-        <div class="program-card reveal reveal-delay-2">
-          <div class="program-icon"><i class="fa-solid fa-flask"></i></div>
-          <h3>Testing Automation Tools</h3>
-          <p>Automated testing frameworks that improve coverage and reduce testing time.</p>
-          
-        </div>
-        <div class="program-card reveal">
-          <div class="program-icon"><i class="fa-solid fa-calendar-check"></i></div>
-          <h3>Month-End Close Support</h3>
-          <p>Operational support to streamline and accelerate financial close processes.</p>
-          
-        </div>
-        <div class="program-card reveal reveal-delay-1">
-          <div class="program-icon"><i class="fa-solid fa-wrench"></i></div>
-          <h3>Day 2 Maintenance &amp; Support</h3>
-          <p>Ongoing support, enhancements, and optimization for Oracle environments.</p>
-          
-        </div>
-        <div class="program-card reveal reveal-delay-2">
-          <div class="program-icon"><i class="fa-solid fa-database"></i></div>
-          <h3>Data Migration Automation</h3>
-          <p>Automated data migration tools for faster, low-risk Oracle Cloud transitions.</p>
-          
-        </div>
-        <div class="program-card reveal">
-          <div class="program-icon"><i class="fa-solid fa-plug"></i></div>
-          <h3>Integration Development</h3>
-          <p>Custom integrations connecting Oracle Cloud with enterprise systems.</p>
-          
-        </div>
-        <div class="program-card reveal reveal-delay-1">
-          <div class="program-icon"><i class="fa-solid fa-book-open"></i></div>
-          <h3>Job Aids &amp; Process Documentation</h3>
-          <p>User guides, SOPs, and training materials to improve adoption.</p>
-          
-        </div>
-        <div class="program-card reveal reveal-delay-2">
-          <div class="program-icon"><i class="fa-solid fa-ticket"></i></div>
-          <h3>ServiceNow Offerings</h3>
-          <p>ServiceNow implementation, managed services, and custom platform solutions.</p>
-          
-        </div>
-      </div>
+  <div class="inline-nudge">
+    <span><strong>Undertaking an Oracle Fusion implementation?</strong> Speak with a UPARI consultant about implementation scope and approach.</span>
+    <a href="contact.html">Discuss Your Project →</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       CATEGORY 2 — OPERATIONS & SUPPORT
+  ══════════════════════════════════════════════════════ -->
+  <div id="cat-operations" class="category-header">
+    <span class="cat-icon">🔧</span>
+    <div>
+      <h2>Operations &amp; Support</h2>
+      <p>Post go-live support, managed services, and ongoing operational assistance</p>
     </div>
-  </section>
-  
-<!-- ══ INDUSTRIES ══════════════════════════════════════════════ -->
-<section class="section section-alt" id="industries">
-  <div class="wrap">
-    <div class="section-header center reveal">
-      <span class="eyebrow">Industry Solutions</span>
-      <h2 class="section-title">Deep Expertise Across Key Verticals</h2>
-      <p class="section-sub">
-        Industry-specific accelerators and frameworks that reduce risk and speed up delivery.
+  </div>
+
+  <div id="month-end" class="service-block">
+    <h3>Month End Close Support</h3>
+    <p>
+      The financial close in Oracle Fusion involves a precise sequence of subledger transfers,
+      journal entries, reconciliations, and period-end reporting steps. UPARI provides structured
+      close support — either as a managed service or as advisory assistance to your internal team.
+    </p>
+    <ul>
+      <li>Close checklist design and task sequencing in Oracle Fusion</li>
+      <li>Subledger accounting (SLA) rule review and correction</li>
+      <li>Period close configuration in Oracle Fusion Financials</li>
+      <li>Reconciliation and variance analysis support</li>
+      <li>Finance team training on Fusion close procedures</li>
+      <li>KPI reporting and close timeline dashboards</li>
+    </ul>
+  </div>
+
+  <div id="day2-support" class="service-block">
+    <h3>Day 2 Maintenance and Support</h3>
+    <p>
+      Post go-live, the real operational challenges begin — just as most implementation partners
+      step back. UPARI's Day 2 service provides ongoing access to senior Oracle Fusion expertise,
+      covering break-fix, configuration changes, quarterly update management, and continuous
+      improvement.
+    </p>
+    <ul>
+      <li>Retained advisory support — flexible hours per month</li>
+      <li>Oracle quarterly patch assessment and regression testing</li>
+      <li>Configuration changes and minor enhancements</li>
+      <li>User query resolution and process guidance</li>
+      <li>Proactive health checks and system reviews</li>
+      <li>Escalation path to senior Oracle practitioners</li>
+    </ul>
+  </div>
+
+  <div id="job-aids" class="service-block">
+    <h3>Job Aids and Process Documentation</h3>
+    <p>
+      Well-written, role-specific process documentation is one of the most practical investments
+      an organisation can make during an ERP implementation. UPARI produces job aids, SOPs, and
+      quick reference guides tailored to your Oracle Fusion configuration — not generic vendor
+      content.
+    </p>
+    <ul>
+      <li>Role-based job aids for Finance, Procurement, and Supply Chain users</li>
+      <li>Step-by-step process guides with annotated Oracle Fusion screenshots</li>
+      <li>SOPs aligned to your specific business process design decisions</li>
+      <li>Document library structure and version control setup</li>
+      <li>Train-the-trainer material for internal capability building</li>
+      <li>Ongoing documentation maintenance for system changes</li>
+    </ul>
+  </div>
+
+  <div class="inline-nudge">
+    <span><strong>Already live on Oracle Fusion and need ongoing support?</strong> UPARI's Day 2 service is available on a retained or ad-hoc basis.</span>
+    <a href="contact.html">Enquire About Support →</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       CATEGORY 3 — TOOLS & AUTOMATION
+  ══════════════════════════════════════════════════════ -->
+  <div id="cat-tools" class="category-header">
+    <span class="cat-icon">🛠️</span>
+    <div>
+      <h2>Tools &amp; Automation</h2>
+      <p>Proprietary tooling and automation frameworks built specifically for Oracle Fusion</p>
+    </div>
+  </div>
+
+  <div id="testing-tools" class="service-block">
+    <h3>Testing Automation Tools</h3>
+    <p>
+      Manual testing is the most time-consuming and error-prone activity in any Oracle
+      implementation. UPARI deploys and configures automated testing tooling — reducing testing
+      effort, improving coverage, and accelerating regression cycles during quarterly Oracle
+      Cloud updates.
+    </p>
+    <ul>
+      <li>Test automation tool selection and configuration</li>
+      <li>Test script library for core Oracle Fusion processes</li>
+      <li>Integration with your test management platform</li>
+      <li>Regression pack maintenance for quarterly Oracle Cloud updates</li>
+    </ul>
+  </div>
+
+  <div id="data-migration" class="service-block">
+    <h3>Data Migration Automation Tools for Implementations</h3>
+    <p>
+      Data migration is consistently the highest-risk workstream in any ERP programme. UPARI
+      has developed proprietary tooling and a repeatable methodology for extracting, transforming,
+      validating, and loading data into Oracle Fusion — tested across millions of records in
+      Finance, Procurement, and Supply Chain.
+    </p>
+    <ul>
+      <li>Source data profiling and quality assessment</li>
+      <li>Transformation mapping and cleansing rules</li>
+      <li>Load tooling using Oracle FBDI and HDL</li>
+      <li>Reconciliation and sign-off reporting</li>
+      <li>Multiple mock migration cycles with documented outcomes</li>
+      <li>Cutover data load planning and execution support</li>
+    </ul>
+  </div>
+
+  <div id="integration" class="service-block">
+    <h3>Integration Development Support using OIC, MuleSoft and Boomi</h3>
+    <p>
+      Oracle Fusion rarely operates in isolation. UPARI provides integration development and
+      advisory services across the leading middleware platforms — ensuring your Oracle environment
+      connects reliably with upstream and downstream systems.
+    </p>
+    <ul>
+      <li>Integration architecture design and pattern selection</li>
+      <li>Development using Oracle Integration Cloud (OIC), MuleSoft, or Dell Boomi</li>
+      <li>Oracle REST and SOAP API configuration and testing</li>
+      <li>Error handling, retry logic, and operational monitoring</li>
+      <li>Integration documentation and handover to your support team</li>
+      <li>Performance testing and scalability review</li>
+    </ul>
+  </div>
+
+  <div id="service-now" class="service-block">
+    <h3>Service Now Offerings</h3>
+    <p>
+      For organisations running ServiceNow alongside Oracle Fusion, UPARI provides configuration
+      and integration services to align ITSM workflows with Oracle operational processes —
+      including service catalogue design, incident management integration, and cross-platform
+      reporting.
+    </p>
+    <ul>
+      <li>ServiceNow – Oracle Fusion integration design and implementation</li>
+      <li>ERP support service catalogue configuration in ServiceNow</li>
+      <li>Incident, change, and problem management workflow alignment</li>
+      <li>Reporting and SLA dashboards spanning both platforms</li>
+    </ul>
+  </div>
+
+  <div id="ai-agents" class="service-block">
+    <h3>AI Agents in Oracle ERP</h3>
+    <p>
+      UPARI Consulting designs and deploys secure, custom AI agents to automate complex, multi-system workflows 
+      within Oracle ERP Cloud. Our agentic systems perform document reconciliation, transaction matching, exception resolution, 
+      and conversational reporting analysis.
+    </p>
+    <ul>
+      <li>Autonomous invoice and statement reconciliation agents</li>
+      <li>AI exception handlers for general ledger and subledger errors</li>
+      <li>RAG-based systems for query handling against corporate SOPs and Oracle guides</li>
+      <li>Conversational interfaces for executive reporting and OTBI analytics extraction</li>
+      <li>Continuous monitoring for transaction anomalies and fraud detection</li>
+    </ul>
+  </div>
+
+  <div class="inline-nudge">
+    <span><strong>Need custom tooling or automation for your Oracle environment?</strong> Our tools team has delivered across Finance, SCM, and HCM.</span>
+    <a href="contact.html">Talk to Our Tools Team →</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       CATEGORY 4 — ADVISORY
+  ══════════════════════════════════════════════════════ -->
+  <div id="cat-advisory" class="category-header">
+    <span class="cat-icon">📋</span>
+    <div>
+      <h2>Advisory</h2>
+      <p>Independent guidance for procurement, pre-sales, and strategic Oracle decisions</p>
+    </div>
+  </div>
+
+  <div id="rfp-selection" class="service-block">
+    <h3>Implementation RFP and Vendor Selection Process</h3>
+    <p>
+      Choosing the right implementation partner is as important as choosing the right software.
+      UPARI supports organisations in designing and running a rigorous vendor selection process
+      — producing an RFP that asks the right questions, and guiding you to a decision that
+      reflects your specific needs and risk profile.
+    </p>
+    <ul>
+      <li>RFP document preparation — scope, evaluation criteria, commercial structure</li>
+      <li>Vendor long-list and short-list facilitation</li>
+      <li>Scoring and evaluation framework design</li>
+      <li>Reference check support and due diligence</li>
+      <li>Contract review advisory (in conjunction with your legal counsel)</li>
+      <li>Independence guaranteed — UPARI holds no reseller arrangements</li>
+    </ul>
+  </div>
+
+  <div id="sales-support" class="service-block">
+    <h3>Sales Support</h3>
+    <p>
+      UPARI provides pre-sales and bid support for Oracle implementation partners and systems
+      integrators. Our practitioners contribute to solution design, effort estimation, and
+      proposal preparation — ensuring bids are grounded in realistic delivery assumptions and
+      credible technical content.
+    </p>
+    <ul>
+      <li>Solution architecture review and costing support</li>
+      <li>Scope definition and work breakdown structure development</li>
+      <li>RFP response contribution — functional and technical sections</li>
+      <li>Demonstration environment configuration for client presentations</li>
+    </ul>
+  </div>
+
+  <div class="inline-nudge">
+    <span><strong>Evaluating Oracle ERP vendors or implementation partners?</strong> UPARI's advisory service provides independent, experienced guidance.</span>
+    <a href="contact.html">Request Advisory Support →</a>
+  </div>
+
+  <!-- ── FINAL CTA ── -->
+  <div class="cta-block" style="margin-top:48px;">
+    <div>
+      <strong>Not sure which service fits your situation?</strong>
+      <p>
+        Speak with a senior UPARI consultant. We will listen to your context and recommend the
+        right engagement — with no obligation and no junior staff on the call.
       </p>
     </div>
-
-    <div class="industries-grid">
-      <div class="industry-card reveal">
-        <div class="industry-icon"><i class="fa-solid fa-landmark"></i></div>
-        <h3>Financial Services</h3>
-        <p>ERP solutions for banking, insurance, and financial operations.</p>
-        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-
-      <div class="industry-card reveal reveal-delay-1">
-        <div class="industry-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-        <h3>Healthcare</h3>
-        <p>HIPAA-compliant ERP solutions for healthcare and life sciences.</p>
-        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-
-      <div class="industry-card reveal reveal-delay-2">
-        <div class="industry-icon"><i class="fa-solid fa-microchip"></i></div>
-        <h3>Hi-Tech</h3>
-        <p>Cloud solutions for fast-growing technology and semiconductor companies.</p>
-        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-
-      <div class="industry-card reveal reveal-delay-3">
-        <div class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        <h3>Higher Education</h3>
-        <p>Modern ERP systems for universities and educational institutions.</p>
-        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-
-      <div class="industry-card reveal reveal-delay-4">
-        <div class="industry-icon"><i class="fa-solid fa-shopping-cart"></i></div>
-        <h3>Retail</h3>
-        <p>Retail and supply chain solutions for omni-channel businesses.</p>
-        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo"><span class="brand">Upari</span><span class="accent"> Consulting</span></div>
-          <p class="footer-tagline">30+ years of implementation experience delivering transformational programs to
-            enterprise clients worldwide.</p>
-          <div class="footer-socials">
-            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="social-btn" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul class="footer-links">
-            <li><a href="#services">Oracle Cloud ERP</a></li>
-            <li><a href="#programs">EBS Migration</a></li>
-            <li><a href="#programs">Invoice Scanning AI</a></li>
-            <li><a href="#services">ServiceNow</a></li>
-            <li><a href="#services">Integration (OIC/MuleSoft)</a></li>
-            <li><a href="#programs">Day 2 Support</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Industries</h4>
-          <ul class="footer-links">
-            <li><a href="#industries">Financial Services</a></li>
-            <li><a href="#industries">Healthcare</a></li>
-            <li><a href="#industries">Hi-Tech</a></li>
-            <li><a href="#industries">Higher Education</a></li>
-            <li><a href="#industries">Retail</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul class="footer-links">
-            <li><a href="index.html#methodology">About Upari</a></li>
-            <li><a href="#" onclick="alert('Leadership page coming soon.')">Leadership</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-            <li><a href="index.html#resources">Whitepapers</a></li>
-            <li><a href="#" onclick="alert('Terms & Conditions coming soon.')">Terms &amp; Conditions</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 upariconsulting.com &nbsp;·&nbsp; All rights reserved</p>
-        <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ══ MODAL ══════════════════════════════════════════════════ -->
-  <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
-    <div class="modal" id="modal">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <p class="modal-title">Get in Touch</p>
-      <p class="modal-sub">Our team will reach out within 1 business day.</p>
-      <!-- Honeypot -->
-      <input type="text" name="website_modal" class="hp-field" id="m-hp" tabindex="-1" autocomplete="off">
-      <div id="modalFormContent">
-        <div class="form-grid">
-          <div class="field">
-            <label>Full Name *</label>
-            <input type="text" placeholder="Jane Smith" id="f-name" maxlength="100" />
-          </div>
-          <div class="field">
-            <label>Designation</label>
-            <input type="text" placeholder="CTO, VP Finance…" id="f-desig" maxlength="100" />
-          </div>
-          <div class="field">
-            <label>Email *</label>
-            <input type="email" placeholder="you@company.com" id="f-email" maxlength="150" />
-          </div>
-          <div class="field">
-            <label>Company</label>
-            <input type="text" placeholder="Acme Corp" id="f-company" maxlength="150" />
-          </div>
-          <div class="field form-full">
-            <label>Message</label>
-            <textarea placeholder="Tell us about your project or what you'd like to explore…" id="f-msg"
-              maxlength="2000"></textarea>
-          </div>
-        </div>
-        <button type="button" class="submit-btn" id="modalSubmitBtn" onclick="handleModalSubmit()">Send Message
-          →</button>
-      </div>
-      <div class="success-msg" id="modalSuccess">✓ &nbsp; Thank you! We'll be in touch shortly.</div>
-    </div>
+    <a href="contact.html" class="btn">Request a Consultation</a>
   </div>
 
-  <!-- Scroll to top -->
-  <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-    aria-label="Back to top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+</div><!-- end .full-body -->
 
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h4>UPARI Consulting</h4>
+      <p>Oracle ERP Cloud Advisory &amp; Implementation Services. Trusted by enterprise
+         organisations across industries since <span id="footer-year"></span>.</p>
+      <p style="margin-top:10px;">
+        [Address Line 1]<br>
+        [City, State, ZIP]<br>
+        +1 (000) 000-0000
+      </p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#invoice-scanning">Invoice Scanning</a></li>
+        <li><a href="#ebs-migration">EBS Cloud Migration</a></li>
+        <li><a href="#coa-design">CoA Design</a></li>
+        <li><a href="#testing-tools">Testing Automation</a></li>
+        <li><a href="#data-migration">Data Migration Tools</a></li>
+        <li><a href="#integration">Integration Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="team.html">Our Team</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#">Client Portal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="footer-year-2"></span> UPARI Consulting. All rights reserved.</span>
+    <span>
+      <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+      <a href="terms.html">Terms of Use</a> &nbsp;|&nbsp;
+      <a href="accessibility.html">Accessibility</a>
+    </span>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<script src="main.js"></script>
+<script>
+  const yr = new Date().getFullYear();
+  const y1 = document.getElementById('footer-year');
+  const y2 = document.getElementById('footer-year-2');
+  if (y1) y1.textContent = yr;
+  if (y2) y2.textContent = yr;
+</script>
+
 </body>
 </html>
