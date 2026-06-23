@@ -10,55 +10,7 @@
   <style>
     /* ── INDUSTRIES PAGE ONLY ─────────────────────────────── */
 
-    .full-body {
-      max-width: 1060px;
-      margin: 0 auto;
-      padding: 32px 20px 56px;
-    }
-    .full-body h1 {
-      font-family: 'Merriweather', serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--navy);
-      border-bottom: 2px solid var(--gold);
-      padding-bottom: 12px;
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
 
-    /* ── JUMP NAV ── */
-    .jump-nav {
-      background-color: #f0ede6;
-      border-top: 1px solid var(--border);
-      border-bottom: 3px solid var(--gold);
-      padding: 0 20px;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
-    .jump-nav-inner {
-      max-width: 1060px;
-      margin: 0 auto;
-      display: flex;
-      align-items: stretch;
-    }
-    .jump-nav-inner a {
-      display: inline-flex;
-      align-items: center;
-      font-family: 'Merriweather Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--navy);
-      text-decoration: none;
-      padding: 10px 16px;
-      border-right: 1px solid var(--border);
-      white-space: nowrap;
-      transition: background 0.15s, color 0.15s;
-    }
-    .jump-nav-inner a:first-child { border-left: 1px solid var(--border); }
-    .jump-nav-inner a:hover {
-      background-color: var(--navy);
-      color: var(--gold-light);
-    }
 
     /* ── INDUSTRY SUMMARY GRID ── */
     .industry-grid {
@@ -306,13 +258,11 @@
       .industry-grid   { grid-template-columns: repeat(2, 1fr); }
       .ind-stat        { flex-direction: column; align-items: flex-start; gap: 6px; }
       .inline-nudge    { flex-direction: column; align-items: flex-start; }
-      .full-body       { padding: 20px 14px 40px; }
       .industry-body   { padding: 20px 16px 18px; }
     }
     @media (max-width: 480px) {
       .industry-grid       { grid-template-columns: 1fr 1fr; }
       .industry-banner-icon { display: none; }
-      .full-body h1        { font-size: 21px; }
     }
   </style>
 </head>
@@ -323,8 +273,6 @@
   <div class="topbar-inner">
     <span>Oracle ERP Cloud Consulting &amp; Advisory Services</span>
     <div>
-      <span><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></span>
-      <span><a href="#">Client Portal</a></span>
       <span><a href="#">Request a Consultation</a></span>
     </div>
   </div>
@@ -365,19 +313,26 @@
   </div>
 </div>
 
-<!-- JUMP NAV -->
-<div class="jump-nav">
-  <div class="jump-nav-inner">
-    <a href="#financial-services">Financial Services</a>
-    <a href="#healthcare">Healthcare</a>
-    <a href="#hi-tech">Hi-Tech</a>
-    <a href="#retail">Retail &amp; Distribution</a>
-    <a href="#higher-education">Higher Education</a>
-  </div>
-</div>
-
 <!-- PAGE BODY -->
-<div class="full-body">
+<div class="page-body">
+
+  <!-- SIDEBAR -->
+  <aside>
+
+    <div class="sidebar-box">
+      <h3>Industries Served</h3>
+      <ul>
+        <li><a href="#financial-services">Financial Services</a></li>
+        <li><a href="#healthcare">Healthcare</a></li>
+        <li><a href="#hi-tech">Hi-Tech</a></li>
+        <li><a href="#retail">Retail &amp; Distribution</a></li>
+        <li><a href="#higher-education">Higher Education</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main>
 
   <h1>Industries Served</h1>
 
@@ -487,10 +442,7 @@
       </div>
     </div>
   </div>
-  <div class="inline-nudge">
-    <span><strong>Operating in financial services?</strong> Speak with a UPARI consultant who has delivered Oracle Fusion in regulated financial environments.</span>
-    <a href="contact.html">Talk to Our FS Team →</a>
-  </div>
+
 
 
   <!-- ═══════════════════════════════════════════
@@ -560,10 +512,7 @@
       </div>
     </div>
   </div>
-  <div class="inline-nudge">
-    <span><strong>Working in healthcare?</strong> UPARI has delivered Oracle Fusion in complex health network and payer environments across multiple regions.</span>
-    <a href="contact.html">Talk to Our Healthcare Team →</a>
-  </div>
+
 
 
   <!-- ═══════════════════════════════════════════
@@ -633,10 +582,7 @@
       </div>
     </div>
   </div>
-  <div class="inline-nudge">
-    <span><strong>Scaling fast or integrating an acquisition?</strong> UPARI specialises in rapid Oracle Fusion deployments for high-growth technology companies.</span>
-    <a href="contact.html">Talk to Our Hi-Tech Team →</a>
-  </div>
+
 
 
   <!-- ═══════════════════════════════════════════
@@ -707,10 +653,7 @@
       </div>
     </div>
   </div>
-  <div class="inline-nudge">
-    <span><strong>Retail or distribution organisation on Oracle?</strong> UPARI can assist with AP automation, supply chain integration, or a full Oracle Cloud migration.</span>
-    <a href="contact.html">Talk to Our Retail Team →</a>
-  </div>
+
 
 
   <!-- ═══════════════════════════════════════════
@@ -782,10 +725,7 @@
       </div>
     </div>
   </div>
-  <div class="inline-nudge">
-    <span><strong>University or research institution moving to Oracle Cloud?</strong> UPARI understands fund accounting, grant management, and higher education governance structures.</span>
-    <a href="contact.html">Talk to Our Education Team →</a>
-  </div>
+
 
 
   <!-- FINAL CTA -->
@@ -800,7 +740,8 @@
     <a href="contact.html" class="btn">Get in Touch</a>
   </div>
 
-</div><!-- end .full-body -->
+  </main>
+</div><!-- end .page-body -->
 
 <!-- FOOTER -->
 <footer>
@@ -809,9 +750,6 @@
       <h4>UPARI Consulting</h4>
       <p>Oracle ERP Cloud Advisory &amp; Implementation Services. Trusted by enterprise
          organisations across industries since <span id="footer-year"></span>.</p>
-      <p style="margin-top:10px;">
-        [Address Line 1]<br>[City, State, ZIP]<br>+1 (000) 000-0000
-      </p>
     </div>
     <div>
       <h4>Industries</h4>

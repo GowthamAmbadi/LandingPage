@@ -266,8 +266,6 @@
   <div class="topbar-inner">
     <span>Oracle ERP Cloud Consulting &amp; Advisory Service</span>
     <div>
-      <span><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></span>
-      <span><a href="#">Client Portal</a></span>
       <span><a href="#">Request a Consultation</a></span>
     </div>
   </div>
@@ -333,11 +331,6 @@
       </div>
       
       <div class="contact-method">
-        <strong>Direct Inquiries</strong>
-        <p><a href="mailto:info@upariconsulting.com">info@upariconsulting.com</a></p>
-      </div>
-      
-      <div class="contact-method">
         <strong>Telephone</strong>
         <p>+1 (000) 000-0000</p>
       </div>
@@ -356,10 +349,7 @@
         </p>
       </div>
       
-      <div class="contact-method">
-        <strong>Client Portal</strong>
-        <p>Existing managed services clients can submit tickets directly via the client portal.</p>
-      </div>
+
     </aside>
     
     <!-- RIGHT PANEL: CONTACT FORM -->
@@ -432,11 +422,6 @@
       <h4>UPARI Consulting</h4>
       <p>Oracle ERP Cloud Advisory &amp; Implementation Services. Trusted by enterprise organisations
          across industries since <span id="footer-year"></span>.</p>
-      <p style="margin-top:10px;">
-        [Address Line 1]<br>
-        [City, State, ZIP]<br>
-        +1 (000) 000-0000
-      </p>
     </div>
     <div>
       <h4>Services</h4>
@@ -525,7 +510,7 @@
       .catch(error => {
         console.log(error);
         formResult.classList.add('error');
-        formResult.innerHTML = '<strong>Connection Error.</strong> Unable to reach the server. Please try again later or contact us directly at info@upariconsulting.com.';
+        formResult.innerHTML = '<strong>Connection Error.</strong> Unable to reach the server. Please try again later or contact us directly.';
       })
       .then(() => {
         submitBtn.disabled = false;

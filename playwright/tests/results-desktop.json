@@ -1,0 +1,272 @@
+{
+  "https://upariconsulting.com": {
+    "success": true,
+    "status": 200,
+    "consoleErrors": [],
+    "failedRequests": [
+      {
+        "url": "https://fonts.gstatic.com/s/merriweather/v33/u-4B0qyriQwlOrhSvowK_l5-eTxCVx0ZbwLvKH2Gk9hLmp0v5yA-xXPqCzLvPee1XYk_XSf-FmTCUG33AvE.woff2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/merriweather/v33/u-4e0qyriQwlOrhSvowK_l5UcA6zuSYEqOzpPe3HOZJ5eX1WtLaQwmYiSeqqJ-k.woff2",
+        "error": "net::ERR_ABORTED"
+      },
+      {
+        "url": "https://fonts.gstatic.com/s/merriweathersans/v28/2-c99IRs1JiJN1FRAMjTN5zd9vgsFHX1QjU.woff2",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "brokenImagesInDom": [],
+    "seo": {
+      "title": "UPARI Consulting – Oracle ERP Cloud Advisory & Implementation",
+      "metaDescription": null,
+      "h1Count": 1,
+      "h1s": [
+        "UPARI CONSULTING"
+      ],
+      "h2Count": 5,
+      "hierarchyBroken": true,
+      "totalImages": 1,
+      "imagesMissingAltCount": 0,
+      "imagesMissingAlt": []
+    },
+    "accessibility": {
+      "missingLabelCount": 0,
+      "missingLabelFields": [],
+      "ariaElementsCount": 0,
+      "invalidRoles": [],
+      "focusErrors": []
+    },
+    "aiAgentServiceFound": false,
+    "aiAgentServiceText": ""
+  },
+  "https://upariconsulting.com/about.html": {
+    "success": true,
+    "status": 200,
+    "consoleErrors": [],
+    "failedRequests": [],
+    "brokenImagesInDom": [],
+    "seo": {
+      "title": "About Us – UPARI Consulting",
+      "metaDescription": null,
+      "h1Count": 2,
+      "h1s": [
+        "UPARI CONSULTING",
+        "About UPARI Consulting"
+      ],
+      "h2Count": 3,
+      "hierarchyBroken": true,
+      "totalImages": 1,
+      "imagesMissingAltCount": 0,
+      "imagesMissingAlt": []
+    },
+    "accessibility": {
+      "missingLabelCount": 0,
+      "missingLabelFields": [],
+      "ariaElementsCount": 0,
+      "invalidRoles": [],
+      "focusErrors": []
+    },
+    "aiAgentServiceFound": false,
+    "aiAgentServiceText": ""
+  },
+  "https://upariconsulting.com/services.html": {
+    "success": true,
+    "status": 200,
+    "consoleErrors": [],
+    "failedRequests": [],
+    "brokenImagesInDom": [],
+    "seo": {
+      "title": "Services & Offerings – UPARI Consulting",
+      "metaDescription": null,
+      "h1Count": 2,
+      "h1s": [
+        "UPARI CONSULTING",
+        "Services & Offerings"
+      ],
+      "h2Count": 5,
+      "hierarchyBroken": false,
+      "totalImages": 0,
+      "imagesMissingAltCount": 0,
+      "imagesMissingAlt": []
+    },
+    "accessibility": {
+      "missingLabelCount": 0,
+      "missingLabelFields": [],
+      "ariaElementsCount": 0,
+      "invalidRoles": [],
+      "focusErrors": []
+    },
+    "aiAgentServiceFound": true,
+    "aiAgentServiceText": "Present on page"
+  },
+  "https://upariconsulting.com/industries.html": {
+    "success": true,
+    "status": 200,
+    "consoleErrors": [],
+    "failedRequests": [],
+    "brokenImagesInDom": [],
+    "seo": {
+      "title": "Industries – UPARI Consulting",
+      "metaDescription": null,
+      "h1Count": 2,
+      "h1s": [
+        "UPARI CONSULTING",
+        "Industries Served"
+      ],
+      "h2Count": 5,
+      "hierarchyBroken": false,
+      "totalImages": 0,
+      "imagesMissingAltCount": 0,
+      "imagesMissingAlt": []
+    },
+    "accessibility": {
+      "missingLabelCount": 0,
+      "missingLabelFields": [],
+      "ariaElementsCount": 0,
+      "invalidRoles": [],
+      "focusErrors": []
+    },
+    "aiAgentServiceFound": false,
+    "aiAgentServiceText": ""
+  },
+  "https://upariconsulting.com/resources.html": {
+    "success": true,
+    "status": 200,
+    "consoleErrors": [],
+    "failedRequests": [],
+    "brokenImagesInDom": [],
+    "seo": {
+      "title": "Resources – UPARI Consulting",
+      "metaDescription": null,
+      "h1Count": 2,
+      "h1s": [
+        "UPARI CONSULTING",
+        "Insights & Resources"
+      ],
+      "h2Count": 1,
+      "hierarchyBroken": true,
+      "totalImages": 0,
+      "imagesMissingAltCount": 0,
+      "imagesMissingAlt": []
+    },
+    "accessibility": {
+      "missingLabelCount": 0,
+      "missingLabelFields": [],
+      "ariaElementsCount": 0,
+      "invalidRoles": [],
+      "focusErrors": []
+    },
+    "aiAgentServiceFound": false,
+    "aiAgentServiceText": ""
+  },
+  "https://upariconsulting.com/contact.html": {
+    "success": true,
+    "status": 200,
+    "consoleErrors": [],
+    "failedRequests": [],
+    "brokenImagesInDom": [],
+    "seo": {
+      "title": "Contact Us – UPARI Consulting",
+      "metaDescription": null,
+      "h1Count": 2,
+      "h1s": [
+        "UPARI CONSULTING",
+        "Contact UPARI Consulting"
+      ],
+      "h2Count": 1,
+      "hierarchyBroken": false,
+      "totalImages": 0,
+      "imagesMissingAltCount": 0,
+      "imagesMissingAlt": []
+    },
+    "accessibility": {
+      "missingLabelCount": 0,
+      "missingLabelFields": [],
+      "ariaElementsCount": 0,
+      "invalidRoles": [],
+      "focusErrors": []
+    },
+    "aiAgentServiceFound": false,
+    "aiAgentServiceText": "",
+    "formResults": {
+      "requiredFieldValidationPassed": true,
+      "invalidEmailValidationPassed": true,
+      "successfulSubmissionPassed": true,
+      "validationLogs": [
+        "Required field validation succeeded: Name field message is \"Please fill out this field.\"",
+        "Invalid email validation succeeded: Email field message is \"Please include an '@' in the email address. 'invalid-email-format' is missing an '@'.\"",
+        "Submission check: Succeeded."
+      ],
+      "submitRedirectOrMessage": "URL after submit: https://www.upariconsulting.com/contact.html. Has success message: false"
+    }
+  },
+  "https://upariconsulting.com/careers.html": {
+    "success": true,
+    "status": 200,
+    "consoleErrors": [],
+    "failedRequests": [],
+    "brokenImagesInDom": [],
+    "seo": {
+      "title": "Careers – UPARI Consulting",
+      "metaDescription": null,
+      "h1Count": 2,
+      "h1s": [
+        "UPARI CONSULTING",
+        "Careers"
+      ],
+      "h2Count": 1,
+      "hierarchyBroken": true,
+      "totalImages": 0,
+      "imagesMissingAltCount": 0,
+      "imagesMissingAlt": []
+    },
+    "accessibility": {
+      "missingLabelCount": 1,
+      "missingLabelFields": [
+        {
+          "tag": "input",
+          "type": "file",
+          "name": "attachment",
+          "id": "resume"
+        }
+      ],
+      "ariaElementsCount": 0,
+      "invalidRoles": [],
+      "focusErrors": []
+    },
+    "aiAgentServiceFound": false,
+    "aiAgentServiceText": ""
+  },
+  "https://upariconsulting.com/ucservices/ai-agents.html": {
+    "success": true,
+    "status": 200,
+    "consoleErrors": [],
+    "failedRequests": [],
+    "brokenImagesInDom": [],
+    "seo": {
+      "title": "UPARI Consulting - AI Agents in Oracle ERP",
+      "metaDescription": null,
+      "h1Count": 2,
+      "h1s": [
+        "UPARI CONSULTING",
+        "AI Agents in Oracle ERP"
+      ],
+      "h2Count": 4,
+      "hierarchyBroken": true,
+      "totalImages": 0,
+      "imagesMissingAltCount": 0,
+      "imagesMissingAlt": []
+    },
+    "accessibility": {
+      "missingLabelCount": 0,
+      "missingLabelFields": [],
+      "ariaElementsCount": 0,
+      "invalidRoles": [],
+      "focusErrors": []
+    },
+    "aiAgentServiceFound": true,
+    "aiAgentServiceText": "Present on page"
+  }
+}
